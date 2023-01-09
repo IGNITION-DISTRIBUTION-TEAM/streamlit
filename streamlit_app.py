@@ -22,7 +22,7 @@ def  connect_to_snowflake(acc,user,passw,sch,wh,db):
     return cs
 
 def get_data():
-    query = 'select * from VW_SALES_ALL_CAMPAIGNS'
+    query = 'select * from DATAWAREHOUSE.DISTRIBUTION_DATA_APPLICATION.VW_SALES_ALL_CAMPAIGNS'
     results = st.session_state['Snow_conn'].execute(query)
     results = st.session_state['Snow_conn'].fetch_pandas_all()
     return results
