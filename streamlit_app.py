@@ -22,7 +22,7 @@ def  connect_to_snowflake(acc,user,passw,sch,wh,db):
     return cs
 
 def get_data():
-    query = 'select 1'
+    query = 'select * from DATAWAREHOUSE.DISTRIBUTION_DATA_APPLICATION.VW_SALES_ALL_CAMPAIGNS'
     results = st.session_state['Snow_conn'].execute(query)
     results = st.session_state['Snow_conn'].fetch_pandas_all()
     return results
@@ -45,4 +45,4 @@ if 'is_ready' not in st.session_state:
 if st.session_state['is_ready'] == True:
     st.write("Connected")
     data = get_data()
-    st.dataframe(data)
+    data
