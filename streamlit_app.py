@@ -29,7 +29,7 @@ with sidebar:
 
 
 if 'is_ready' not in st.session_state:
-    st.session_state [is_ready] = False
+    st.session_state ['is_ready'] = False
 
 if st.session_state['is_ready'] == True:
     st.write("Connected")
