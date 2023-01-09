@@ -16,9 +16,16 @@ mainschema = "DISTRIBUTION_DATA_APPLICATION"
 def  connect_to_snowflake(acc,user,passw,sch,wh,db):
     ctx = sf.connect(account=acc,user=user,password=passw,schema=sch,warehouse=wh,database=db)
     cs = ctx.cursor()
+    # keep connection in memery
+    st.session_state['Snow_conn'] = cs
     st.session_state['is_ready'] = True
     return cs
-    
+
+def get_data():
+    query = 'select * from VW_SALES_ALL_CAMPAIGNS'
+    results = st.session_state['Snow_conn'].execute(query)
+    results = st.session_state['Snow_conn'].fetch_pandas_all()
+    return results
 
 with sidebar:
     Username = st.text_input("Username")
@@ -37,3 +44,5 @@ if 'is_ready' not in st.session_state:
 
 if st.session_state['is_ready'] == True:
     st.write("Connected")
+    data = get_data()
+    st.dataframe(data)
