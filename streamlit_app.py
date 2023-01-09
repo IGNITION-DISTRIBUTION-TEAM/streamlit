@@ -24,7 +24,7 @@ def  connect_to_snowflake(acc,user,passw,sch,wh,db):
 def get_data():
     query = 'select 1'
     results = st.session_state['Snow_conn'].execute(query)
-    results = st.session_state['Snow_conn'].fetch_pandas_all()
+#     results = st.session_state['Snow_conn'].fetch_pandas_all()
     return results
 
 with sidebar:
