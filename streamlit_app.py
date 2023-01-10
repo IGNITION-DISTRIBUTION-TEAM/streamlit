@@ -19,7 +19,7 @@ def create_session_object():
     connection_parameters = {
       "account": "pm58521.east-us-2.azure",
       "user": "SVC_DISTRIBUTION_DATA",
-      "password": "<khrKV3ymWLvMg6QczKMr!!",
+      "password": "khrKV3ymWLvMg6QczKMr!!",
       "warehouse": "DISTRIBUTION_WH",
       "database": "DATAWAREHOUSE",
       "schema": "DISTRIBUTION_DATA_APPLICATION"
