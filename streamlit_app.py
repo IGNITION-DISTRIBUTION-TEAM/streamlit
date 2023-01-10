@@ -35,7 +35,7 @@ st.subheader("Powered by Snowpark for Python and Snowflake Data Marketplace | Ma
 # Create Snowpark DataFrames that loads data from Knoema: Environmental Data Atlas
 def load_data(session):
     # CO2 Emissions by Country
-    snow_df_co2 = session.table("DISTRIBUTION_DATA_APPLICATION.TW_SAC_SALES_ALL_CAMPAIGNS")
+    snow_df_co2 = session.table("TW_SAC_SALES_ALL_CAMPAIGNS")
     
     # Convert Snowpark DataFrames to Pandas DataFrames for Streamlit
     pd_df_co2  = snow_df_co2.to_pandas()
