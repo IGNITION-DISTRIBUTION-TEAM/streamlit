@@ -23,8 +23,7 @@ def  connect_to_snowflake(acc,user,passw,sch,wh,db):
 
 def get_data():
     query = 'select 1'
-    st.session_state['Snow_conn'].execute(query)
-    results = st.session_state['Snow_conn'].fetch_pandas_all()
+    return = st.session_state['Snow_conn'].execute(query).fetch_pandas_all()
     return results
 
 with sidebar:
@@ -45,5 +44,4 @@ if 'is_ready' not in st.session_state:
 if st.session_state['is_ready'] == True:
     st.write("Connected")
     data = get_data()
-    data = pd.DataFrame(data)
     st.dataframe(data)
