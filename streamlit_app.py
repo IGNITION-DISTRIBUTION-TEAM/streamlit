@@ -31,3 +31,10 @@ else:
     st.write('I wont do it')
 
 st.metric(label="Temperature", value="70 °F", delta="1.2 °F")
+
+
+chart_data = pd.DataFrame(
+    np.random.randn(20, 3),
+    columns=['a', 'b', 'c'])
+
+st.line_chart(chart_data)
