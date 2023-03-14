@@ -23,4 +23,5 @@ def run_query(query):
 
 rows = run_query("SELECT * from TM_API_SCHEDULETYPES;")
 
-st.write(rows)
+st.dataframe(rows)
+
