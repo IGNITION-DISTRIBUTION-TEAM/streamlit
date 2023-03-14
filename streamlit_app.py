@@ -11,6 +11,8 @@ def init_connection():
 
 conn = init_connection()
 
+st.title('Uber pickups in NYC')
+
 # Perform query.
 # Uses st.cache_data to only rerun when the query changes or after 10 min.
 @st.cache_data(ttl=600)
