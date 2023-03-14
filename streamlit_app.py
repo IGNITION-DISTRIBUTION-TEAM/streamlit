@@ -29,3 +29,5 @@ if st.button('show me your table!'):
     st.dataframe(rows)
 else:
     st.write('I wont do it')
+
+st.metric(42.2)
