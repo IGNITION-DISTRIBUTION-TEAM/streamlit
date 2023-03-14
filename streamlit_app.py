@@ -28,15 +28,6 @@ def run_query(query):
 rows = run_query("SELECT * from TM_API_SCHEDULETYPES;")
 
 
-
-if st.button('show me your table!'):
-    st.dataframe(rows)
-else:
-    st.write('I wont do it')
-
-st.metric(label="Temperature", value="70 °F", delta="1.2 °F")
-
-
 chart_data = pd.DataFrame(
     np.random.randn(20, 3),
     columns=['a', 'b', 'c'])
@@ -48,3 +39,20 @@ with st.sidebar:
         "Choose a shipping method",
         ("Standard (5-15 days)", "Express (2-5 days)")
     )
+
+    
+
+col1, col2, col3 = st.columns(3)
+
+with col1:
+if st.button('show me your table!'):
+    st.dataframe(rows)
+else:
+    st.write('I wont do it')
+
+with col2:
+st.metric(label="Temperature", value="70 °F", delta="1.2 °F")
+
+with col3:
+   st.header("An owl")
+   st.image("https://static.streamlit.io/examples/owl.jpg")    
