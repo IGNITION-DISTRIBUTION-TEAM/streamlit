@@ -6,8 +6,7 @@ import snowflake.connector
 # Initialize connection.
 # Uses st.cache_resource to only run once.
 
-with st.sidebar:
-    my_component(greeting="Peekabo")
+
 
 def init_connection():
     return snowflake.connector.connect(
@@ -43,3 +42,6 @@ chart_data = pd.DataFrame(
     columns=['a', 'b', 'c'])
 
 st.line_chart(chart_data)
+
+with st.sidebar:
+    my_component(greeting="Peekabo")
