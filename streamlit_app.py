@@ -26,6 +26,6 @@ rows = run_query("SELECT * from TM_API_SCHEDULETYPES;")
 
 
 if st.button('Say hello'):
-    sst.dataframe(rows)
+    st.dataframe(rows)
 else:
     st.write('Goodbye')
