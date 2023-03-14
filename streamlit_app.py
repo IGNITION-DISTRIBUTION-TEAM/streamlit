@@ -7,8 +7,7 @@ import snowflake.connector
 # Uses st.cache_resource to only run once.
 
 
-
-st.button('new button')
+st.button('new')
 
 
 def init_connection():
