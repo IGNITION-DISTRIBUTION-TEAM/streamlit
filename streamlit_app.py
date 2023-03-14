@@ -7,6 +7,9 @@ import snowflake.connector
 # Uses st.cache_resource to only run once.
 
 
+st.write('Hello, *World!* :sunglasses:')
+
+
 st.button('new')
 
 
