@@ -30,4 +30,4 @@ if st.button('show me your table!'):
 else:
     st.write('I wont do it')
 
-st.metric(42.2)
+st.metric(42,2)
