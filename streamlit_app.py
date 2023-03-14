@@ -45,13 +45,13 @@ with st.sidebar:
 col1, col2, col3 = st.columns(3)
 
 with col1:
-if st.button('show me your table!'):
-    st.dataframe(rows)
-else:
-    st.write('I wont do it')
+    if st.button('show me your table!'):
+        st.dataframe(rows)
+    else:
+        st.write('I wont do it')
 
 with col2:
-st.metric(label="Temperature", value="70 °F", delta="1.2 °F")
+    st.metric(label="Temperature", value="70 °F", delta="1.2 °F")
 
 with col3:
    st.header("An owl")
