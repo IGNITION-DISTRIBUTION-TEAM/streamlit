@@ -25,7 +25,7 @@ rows = run_query("SELECT * from TM_API_SCHEDULETYPES;")
 
 
 
-if st.button('show me you table!'):
+if st.button('show me your table!'):
     st.dataframe(rows)
 else:
     st.write('I wont do it')
