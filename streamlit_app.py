@@ -29,7 +29,7 @@ st.title('Onair Campaign Stats')
 
 st.dataframe(DATAUPDATE)
 
-st.line_chart(DATAUPDATE,"date","totalsales")
+st.line_chart(DATAUPDATE,x="date",y="totalsales")
 
 
 # def init_connection():
