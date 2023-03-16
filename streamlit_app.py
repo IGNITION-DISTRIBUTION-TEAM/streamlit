@@ -23,8 +23,6 @@ st.title('Onair Campaign Stats')
 
 with st.sidebar:
     option = st.selectbox('Please select a campaign',DATAUPDATE["campaignname"].unique())
-    
-    d = st.date_input("When\'s your birthday",datetime.date(2019, 7, 6))
 
 st.write('You selected:', option)
 
