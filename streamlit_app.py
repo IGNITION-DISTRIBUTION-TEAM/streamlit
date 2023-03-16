@@ -30,8 +30,7 @@ rows = run_query("select * from DATAWAREHOUSE.DISTRIBUTION_DATA_APPLICATION.TM_A
 
 
 for row in rows:
-    st.dataframe(rows[1])
-
+    st.write(f"{row[0]} has a :{row[1]}:")
 
 
     
