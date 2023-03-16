@@ -17,13 +17,7 @@ query = "select * from DATAWAREHOUSE.DISTRIBUTION_DATA_APPLICATION.TM_AD_ONAIR_P
 
 DATAUPDATE = pd.read_sql(query, connection)
 
-with st.sidebar:
-    with st.echo():
-        st.write("This code will be printed to the sidebar.")
 
-    with st.spinner("Loading..."):
-        time.sleep(5)
-    st.success("Done!")
 
 st.title('Onair Campaign Stats')
 
@@ -37,6 +31,14 @@ rslt_df = DATAUPDATE.loc[DATAUPDATE['campaignname'] == option]
 st.line_chart(rslt_df,x="date",y="totalagents")
 st.line_chart(rslt_df,x="date",y="totalsales")
 st.line_chart(rslt_df,x="date",y="averagescore")
+
+with st.sidebar:
+    with st.echo():
+        st.write("This code will be printed to the sidebar.")
+
+    with st.spinner("Loading..."):
+        time.sleep(5)
+        st.success("Done!")
 
 
 # def init_connection():
