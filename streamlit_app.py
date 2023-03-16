@@ -31,7 +31,7 @@ rslt_df = DATAUPDATE.loc[DATAUPDATE['campaignname'] == option]
 col1, col2, col3 = st.columns(3)
 
 with col1:
-   st.line_chart(rslt_df,x="date",y="totalagents").jpg")
+   st.line_chart(rslt_df,x="date",y="totalagents")
 
 with col2:
    st.line_chart(rslt_df,x="date",y="totalsales")
