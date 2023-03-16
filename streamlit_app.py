@@ -29,6 +29,9 @@ st.title('Onair Campaign Stats')
 
 st.dataframe(DATAUPDATE)
 
+st.line_chart(DATAUPDATE,"date","totalsales")
+
+
 # def init_connection():
 #     return snowflake.connector.connect(
 #         **st.secrets["snowflake"], client_session_keep_alive=True
