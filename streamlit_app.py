@@ -20,7 +20,7 @@ DATAUPDATE = pd.read_sql(query, connection)
 st.title('Onair Campaign Stats')
 
 option = st.selectbox(
-    'Please select a campaign',DATAUPDATE["campaignname"])
+    'Please select a campaign',DATAUPDATE["campaignname"].unique())
 
 st.write('You selected:', option)
 
