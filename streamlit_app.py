@@ -30,8 +30,4 @@ rows = run_query("select * from DATAWAREHOUSE.DISTRIBUTION_DATA_APPLICATION.TM_A
 
 
 for row in rows:
-    st.write(f"{row[0]}")
-
-
-    
-# st.line_chart(rows,7,5)
+    st.line_chart(rows,f"{row[7]}",f"{row[5]}")
