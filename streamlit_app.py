@@ -27,6 +27,13 @@ st.dataframe(DATAUPDATE)
 st.line_chart(DATAUPDATE,x="date",y="totalagents")
 
 
+
+option = st.selectbox(
+    'How would you like to be contacted?',DATAUPDATE["date"])
+
+st.write('You selected:', option)
+
+
 # def init_connection():
 #     return snowflake.connector.connect(
 #         **st.secrets["snowflake"], client_session_keep_alive=True
