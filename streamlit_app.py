@@ -30,8 +30,7 @@ st.line_chart(rslt_df,x="date",y="totalsales")
 st.line_chart(rslt_df,x="date",y="averagescore")
 
 with st.sidebar:
-    option = st.selectbox(
-    'Please select a campaign',DATAUPDATE["campaignname"].unique())
+    option = st.selectbox('Please select a campaign',DATAUPDATE["campaignname"].unique())
 
 
     
