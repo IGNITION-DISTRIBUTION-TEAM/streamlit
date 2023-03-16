@@ -29,9 +29,11 @@ st.line_chart(DATAUPDATE,x="date",y="totalagents")
 
 
 option = st.selectbox(
-    'How would you like to be contacted?',DATAUPDATE["date"])
+    'Please select a campaign',DATAUPDATE["campaignname"])
 
-st.write('You selected:', option)
+test = st.write('You selected:', option)
+
+st.write(test)
 
 
 # def init_connection():
