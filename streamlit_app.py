@@ -3,6 +3,7 @@ import pandas as pd
 import numpy as np
 import snowflake.connector
 from snowflake.sqlalchemy import URL
+from sqlalchemy import create_engine
 
 # Initialize connection.
 # Uses st.cache_resource to only run once.
