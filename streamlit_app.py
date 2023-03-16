@@ -24,8 +24,9 @@ def run_query(query):
         cur.execute(query)
         return cur.fetchall()
     
-    
-rows = run_query("select * from DATAWAREHOUSE.DISTRIBUTION_DATA_APPLICATION.TM_AD_ONAIR_PERFORMANCE_STATS")    
 
+
+rows = run_query("select * from DATAWAREHOUSE.DISTRIBUTION_DATA_APPLICATION.TM_AD_ONAIR_PERFORMANCE_STATS")    
+st.dataframe(rows)
     
 st.line_chart(rows,x="TOTALSALES",y="DATE")
