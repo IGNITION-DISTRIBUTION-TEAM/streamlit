@@ -24,15 +24,12 @@ option = st.selectbox(
 
 st.write('You selected:', option)
 
-filter = DATAUPDATE["campaignname"] = option
+rslt_df = dataframe[dataframe['Percentage'] = option] 
 
 
+st.dataframe(rslt_df)
 
-
-
-st.dataframe(filter)
-
-st.line_chart(filter,x="date",y="totalagents")
+st.line_chart(rslt_df,x="date",y="totalagents")
 
 
 
