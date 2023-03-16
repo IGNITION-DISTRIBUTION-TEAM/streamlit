@@ -28,7 +28,7 @@ rslt_df = DATAUPDATE.loc[DATAUPDATE['campaignname'] == option]
 
 st.dataframe(rslt_df)
 
-st.line_chart(rslt_df,x="date",y=("totalagents","tatalsales"))
+st.line_chart(rslt_df,x="date",y="totalagents")
 
 
 
