@@ -26,24 +26,19 @@ st.write('You selected:', option)
 
 rslt_df = DATAUPDATE.loc[DATAUPDATE['campaignname'] == option]
 
-st.dataframe(rslt_df)
 
-st.line_chart(rslt_df,x="date",y="totalagents")
 
 
 col1, col2, col3 = st.columns(3)
 
 with col1:
-   st.header("A cat")
-   st.image("https://static.streamlit.io/examples/cat.jpg")
+   st.line_chart(rslt_df,x="date",y="totalagents")
 
 with col2:
-   st.header("A dog")
-   st.image("https://static.streamlit.io/examples/dog.jpg")
+   st.line_chart(rslt_df,x="date",y="totalsales")
 
 with col3:
-   st.header("An owl")
-   st.image("https://static.streamlit.io/examples/owl.jpg")
+   st.line_chart(rslt_df,x="date",y="averagescore")
 
 
 # def init_connection():
