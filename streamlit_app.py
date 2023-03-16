@@ -48,13 +48,13 @@ with col3:
 col4, col5, col6 = st.columns(3)
 
 with col4:
-   st.subheader('Total Agents')
-   st.line_chart(rslt_df,x="date",y="totalagents")
+   st.subheader('Sales Rate')
+   st.line_chart(rslt_df,x="date",y="salesrate")
 
 with col5:
-   st.subheader('Total Sales')
-   st.line_chart(rslt_df,x="date",y="totalsales")
+   st.subheader('Contact conversion')
+   st.line_chart(rslt_df,x="date",y="contact_conversion")
 
 with col6:
-   st.subheader('Average Score')
-   st.line_chart(rslt_df,x="date",y="averagescore")
+   st.subheader('RPC conversion')
+   st.line_chart(rslt_df,x="date",y="rpc_conversion")
