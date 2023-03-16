@@ -24,7 +24,7 @@ option = st.selectbox(
 
 st.write('You selected:', option)
 
-rslt_df = dataframe[dataframe['campaignname'].isin(options)] 
+rslt_df = DATAUPDATE.loc[DATAUPDATE['campaignname'] == option]
 
 st.dataframe(rslt_df)
 
