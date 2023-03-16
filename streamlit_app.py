@@ -27,6 +27,8 @@ def run_query(query):
 
 
 rows = run_query("select * from DATAWAREHOUSE.DISTRIBUTION_DATA_APPLICATION.TM_AD_ONAIR_PERFORMANCE_STATS")    
-test = st.dataframe(rows,copy_headers=True)
+test = st.dataframe(rows)
+
+st.write(rows)
     
 st.line_chart(rows, x="DATE", y="TOTALSALES")
