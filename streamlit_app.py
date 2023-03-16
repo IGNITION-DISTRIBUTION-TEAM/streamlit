@@ -17,12 +17,9 @@ query = "select * from DATAWAREHOUSE.DISTRIBUTION_DATA_APPLICATION.TM_AD_ONAIR_P
 
 DATAUPDATE = pd.read_sql(query, connection)
 
-
-
 st.title('Onair Campaign Stats')
 
-option = st.selectbox(
-    'Please select a campaign',DATAUPDATE["campaignname"].unique())
+
 
 st.write('You selected:', option)
 
@@ -33,33 +30,8 @@ st.line_chart(rslt_df,x="date",y="totalsales")
 st.line_chart(rslt_df,x="date",y="averagescore")
 
 with st.sidebar:
-    with st.echo():
-        st.write("This code will be printed to the sidebar.")
-
-    with st.spinner("Loading..."):
-        time.sleep(5)
-        st.success("Done!")
+    option = st.selectbox(
+    'Please select a campaign',DATAUPDATE["campaignname"].unique())
 
 
-# def init_connection():
-#     return snowflake.connector.connect(
-#         **st.secrets["snowflake"], client_session_keep_alive=True
-#     )
-
-# conn = init_connection()
-
-# # Perform query.
-# # Uses st.cache_data to only rerun when the query changes or after 10 min.
-# @st.cache_data(ttl=600)
-# def run_query(query):
-#     with conn.cursor() as cur:
-#         cur.execute(query)
-#         return cur.fetchall()
-    
-
-
-# rows = run_query("select * from DATAWAREHOUSE.DISTRIBUTION_DATA_APPLICATION.TM_AD_ONAIR_PERFORMANCE_STATS")    
-
-# df = pd.DataFrame(rows)
-# st.table(rows.iloc[0:10])
     
