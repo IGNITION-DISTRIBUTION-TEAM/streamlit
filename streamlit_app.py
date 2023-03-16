@@ -29,5 +29,5 @@ def run_query(query):
 rows = run_query("select * from DATAWAREHOUSE.DISTRIBUTION_DATA_APPLICATION.TM_AD_ONAIR_PERFORMANCE_STATS")    
 
 
-for row in rows:
-    st.line_chart(rows,f"{row[7]}",f"{row[5]}")
+st.table(rows.iloc[0:10])
+    
