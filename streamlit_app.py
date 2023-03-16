@@ -42,8 +42,6 @@ with col3:
    st.subheader('Average Score')
    st.line_chart(rslt_df,x="date",y="averagescore")
 
-st.set_page_config(layout="wide")
-
 col4, col5, col6 = st.columns(3)
 
 with col4:
