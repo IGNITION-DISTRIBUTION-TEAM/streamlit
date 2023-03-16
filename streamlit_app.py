@@ -28,6 +28,8 @@ st.write('You selected:', option)
 
 rslt_df = DATAUPDATE.loc[DATAUPDATE['campaignname'] == option]
 
+st.dataframe(rslt_df)
+
 col1, col2, col3 = st.columns(3)
 
 with col1:
@@ -43,3 +45,16 @@ with col3:
    st.line_chart(rslt_df,x="date",y="averagescore")
 
     
+col4, col5, col6 = st.columns(3)
+
+with col4:
+   st.subheader('Total Agents')
+   st.line_chart(rslt_df,x="date",y="totalagents")
+
+with col5:
+   st.subheader('Total Sales')
+   st.line_chart(rslt_df,x="date",y="totalsales")
+
+with col6:
+   st.subheader('Average Score')
+   st.line_chart(rslt_df,x="date",y="averagescore")
