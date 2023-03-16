@@ -28,11 +28,15 @@ st.write('You selected:', option)
 
 rslt_df = DATAUPDATE.loc[DATAUPDATE['campaignname'] == option]
 
-st.line_chart(rslt_df,x="date",y="totalagents")
-st.line_chart(rslt_df,x="date",y="totalsales")
-st.line_chart(rslt_df,x="date",y="averagescore")
+col1, col2, col3 = st.columns(3)
 
+with col1:
+   st.line_chart(rslt_df,x="date",y="totalagents").jpg")
 
+with col2:
+   st.line_chart(rslt_df,x="date",y="totalsales")
 
+with col3:
+   st.line_chart(rslt_df,x="date",y="averagescore")
 
     
