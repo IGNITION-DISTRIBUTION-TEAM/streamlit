@@ -8,12 +8,7 @@ from sqlalchemy import create_engine
 # Initialize connection.
 # Uses st.cache_resource to only run once.
 
-url = URL(account = "pm58521.east-us-2.azure",
-          user = "SVC_DISTRIBUTION",
-          password = "bLE5G2qCjmmvuDEWpH!@",
-          warehouse = "DISTRIBUTION_WH",
-          database = "DATAWAREHOUSE",
-          schema = "DISTRIBUTION_DATA_APPLICATION")
+url = URL(**st.secrets["snowflake"])
 
 engine = create_engine(url)
 connection = engine.connect()
