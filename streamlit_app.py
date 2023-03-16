@@ -8,6 +8,8 @@ from sqlalchemy import create_engine
 # Initialize connection.
 # Uses st.cache_resource to only run once.
 
+st.set_page_config(layout="wide")
+
 url = URL(**st.secrets["snowflake"])
 
 engine = create_engine(url)
