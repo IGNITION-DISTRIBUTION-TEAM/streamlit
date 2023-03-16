@@ -19,7 +19,6 @@ query = "select * from DATAWAREHOUSE.DISTRIBUTION_DATA_APPLICATION.TM_AD_ONAIR_P
 
 DATAUPDATE = pd.read_sql(query, connection)
 
-st.image("hhttps://cdn.theorg.com/e707ae83-f57e-4df4-9211-facc89120913_thumb.jpg")
 
 st.title('Onair Campaign Stats')
 
