@@ -29,9 +29,4 @@ def run_query(query):
 rows = run_query("select * from DATAWAREHOUSE.DISTRIBUTION_DATA_APPLICATION.TM_AD_ONAIR_PERFORMANCE_STATS")    
 test = st.dataframe(rows)
     
-chart = Chart(rows).mark_line().encode(
-  x=X('TOTALSALES :N'),
-  y=Y('DATE:Q'),
-  color=alt.Color("name:N")
-).properties(title="Hello World")
-st.altair_chart(chart, use_container_width=True)
+st.line_chart(rows, x="7", y="5")
