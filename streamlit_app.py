@@ -13,27 +13,29 @@ url = URL(**st.secrets["snowflake"])
 engine = create_engine(url)
 connection = engine.connect()
 
-
 query = "select * from DATAWAREHOUSE.DISTRIBUTION_DATA_APPLICATION.TM_AD_ONAIR_PERFORMANCE_STATS"
-
 
 DATAUPDATE = pd.read_sql(query, connection)
 
 st.title('Onair Campaign Stats')
 
-
-st.dataframe(DATAUPDATE)
-
-st.line_chart(DATAUPDATE,x="date",y="totalagents")
-
-
-
 option = st.selectbox(
     'Please select a campaign',DATAUPDATE["campaignname"])
 
-test = st.write('You selected:', option)
+st.write('You selected:', option)
 
-st.write(test)
+filter = DATAUPDATE["campaignname"] = option
+
+
+
+
+
+st.dataframe(filter)
+
+st.line_chart(filter,x="date",y="totalagents")
+
+
+
 
 
 # def init_connection():
