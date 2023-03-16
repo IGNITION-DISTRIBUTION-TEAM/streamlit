@@ -28,8 +28,6 @@ st.write('You selected:', option)
 
 rslt_df = DATAUPDATE.loc[DATAUPDATE['campaignname'] == option]
 
-st.dataframe(rslt_df)
-
 col1, col2, col3 = st.columns(3)
 
 with col1:
