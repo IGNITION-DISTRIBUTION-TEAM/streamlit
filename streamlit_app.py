@@ -9,16 +9,12 @@ import snowflake.connector
 
 st.title('Onair Campaign Stats')
 
-
-
 def init_connection():
     return snowflake.connector.connect(
         **st.secrets["snowflake"], client_session_keep_alive=True
     )
 
 conn = init_connection()
-
-st.title('How to look at table data!')
 
 # Perform query.
 # Uses st.cache_data to only rerun when the query changes or after 10 min.
@@ -27,3 +23,9 @@ def run_query(query):
     with conn.cursor() as cur:
         cur.execute(query)
         return cur.fetchall()
+    
+    
+rows = run_query("select * from DATAWAREHOUSE.DISTRIBUTION_DATA_APPLICATION.TM_AD_ONAIR_PERFORMANCE_STATS")    
+
+    
+st.line_chart(data=rows, *, x=None, y=None, width=0, height=0, use_container_width=True)
