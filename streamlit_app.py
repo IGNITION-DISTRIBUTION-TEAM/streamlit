@@ -19,7 +19,8 @@ DATAUPDATE = pd.read_sql(query, connection)
 
 st.title('Onair Campaign Stats')
 
-
+with st.sidebar:
+    option = st.selectbox('Please select a campaign',DATAUPDATE["campaignname"].unique())
 
 st.write('You selected:', option)
 
@@ -29,8 +30,7 @@ st.line_chart(rslt_df,x="date",y="totalagents")
 st.line_chart(rslt_df,x="date",y="totalsales")
 st.line_chart(rslt_df,x="date",y="averagescore")
 
-with st.sidebar:
-    option = st.selectbox('Please select a campaign',DATAUPDATE["campaignname"].unique())
+
 
 
     
