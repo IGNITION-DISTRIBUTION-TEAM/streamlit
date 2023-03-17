@@ -10,6 +10,8 @@ from sqlalchemy import create_engine
 
 st.set_page_config(layout="wide")
 
+
+
 url = URL(**st.secrets["snowflake"])
 
 engine = create_engine(url)
@@ -24,6 +26,8 @@ st.title('Onair Campaign Stats')
 
 with st.sidebar:
     option = st.selectbox('Please select a campaign',DATAUPDATE["campaignname"].unique())
+    
+st.sidebar.success("Select a demo above.")    
 
 st.write('You selected:', option)
 
