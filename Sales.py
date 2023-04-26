@@ -33,7 +33,7 @@ mask = (DATAUPDATE['saledate'] > start_date) & (DATAUPDATE['saledate'] <= end_da
 
 df_filtered = DATAUPDATE.loc[mask]
 
-df_filtered = DATAUPDATE[(DATAUPDATE['campaignname'] == option) & (DATAUPDATE['providername'] == option2) & (DATAUPDATE['providertype'] == option3)]
+df_filtered = df_filtered[(DATAUPDATE['campaignname'] == option) & (df_filtered['providername'] == option2) & (df_filtered['providertype'] == option3)]
 
 st.subheader('Total Agents ')
 st.line_chart(df_filtered,x="saledate",y="sales")
