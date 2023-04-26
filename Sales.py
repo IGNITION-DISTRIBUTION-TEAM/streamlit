@@ -28,11 +28,10 @@ with st.sidebar:
     
     start_date = st.date_input("Start Date", value=pd.to_datetime("2021-01-31", format="%Y-%m-%d"))
     end_date = st.date_input("End Date", value=pd.to_datetime("today", format="%Y-%m-%d"))
-    
-    start_date = datetime.start_date.strftime('%Y-%m-%d')
-    end_date = datetime.end_date.strftime('%Y-%m-%d')
-    
-df_filtered = DATAUPDATE[(DATAUPDATE['campaignname'] == option) & (DATAUPDATE['providername'] == option2) & (DATAUPDATE['providertype'] == option3) & (DATAUPDATE['Saledate'] >= start_date) & (DATAUPDATE['Saledate'] <= end_date)]
+   
+df_filtered = DATAUPDATE.loc[start_date:end_date]
+
+df_filtered = DATAUPDATE[(DATAUPDATE['campaignname'] == option) & (DATAUPDATE['providername'] == option2) & (DATAUPDATE['providertype'] == option3)]
 
 st.subheader('Total Agents ')
 st.line_chart(df_filtered,x="saledate",y="sales")
