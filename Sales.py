@@ -17,12 +17,6 @@ query = "select * from DATAWAREHOUSE.DISTRIBUTION_DATA_APPLICATION.VW_AD_SALES_U
 
 DATAUPDATE = pd.read_sql(query, connection)
 
-min_date = datetime.datetime(2020,1,1)
-max_date = datetime.date(2022,1,1)
-
-a_date = st.date_input("Pick a date", min_value=min_date, max_value=max_date)
-
-
 with st.sidebar:
     option = st.selectbox('Please select a campaign',DATAUPDATE["campaignname"].unique())
     providernames = DATAUPDATE["providername"].loc[DATAUPDATE["campaignname"] == option]
