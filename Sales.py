@@ -31,5 +31,5 @@ rslt_df = DATAUPDATE.loc[DATAUPDATE['campaignname'] == option]
 rslt_df = rslt_df.loc[DATAUPDATE['providername'] == option2]
 rslt_df = rslt_df.loc[DATAUPDATE['providertype'] == option3]
 
- st.subheader('Total Agents ')
- st.line_chart(rslt_df,x="Saledate",y="SALES")
+st.subheader('Total Agents ')
+st.line_chart(rslt_df,x="Saledate",y="SALES")
