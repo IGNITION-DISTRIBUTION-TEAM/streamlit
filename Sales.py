@@ -27,9 +27,9 @@ with st.sidebar:
     option3 = st.selectbox('Please select a providertype',providertypes.unique())
     
     
-rslt_df = DATAUPDATE.loc[DATAUPDATE['campaignname'] == option]
-rslt_df = rslt_df.loc[DATAUPDATE['providername'] == option2]
-rslt_df = rslt_df.loc[DATAUPDATE['providertype'] == option3]
+rslt_df1 = DATAUPDATE.loc[DATAUPDATE['campaignname'] == option]
+rslt_df2 = rslt_df1.loc[DATAUPDATE['providername'] == option2]
+rslt_df3 = rslt_d3.loc[DATAUPDATE['providertype'] == option3]
 
 st.subheader('Total Agents ')
-st.line_chart(rslt_df,x="saledate",y="sales")
+st.line_chart(rslt_df3,x="saledate",y="sales")
