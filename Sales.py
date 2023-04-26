@@ -16,7 +16,6 @@ connection = engine.connect()
 
 query = "select * from DATAWAREHOUSE.DISTRIBUTION_DATA_APPLICATION.VW_AD_SALES_UPDATED"
 
-@st.cache_data 
 DATAUPDATE = pd.read_sql(query, connection)
 
 with st.sidebar:
