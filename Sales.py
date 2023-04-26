@@ -19,8 +19,8 @@ query = "select * from DATAWAREHOUSE.DISTRIBUTION_DATA_APPLICATION.VW_AD_SALES_U
 DATAUPDATE = pd.read_sql(query, connection)
 
 with st.sidebar:
+    DATAUPDATE = DATAUPDATE.sort_values(by=['campaignname'])
     option = st.selectbox('Please select a campaign',DATAUPDATE["campaignname"].unique())
-    option = sorted(option)
     providernames = DATAUPDATE["providername"].loc[DATAUPDATE["campaignname"] == option]
     option2 = st.selectbox('Please select a providername',providernames.unique())
 
