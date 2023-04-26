@@ -52,8 +52,8 @@ c = alt.Chart(df_filtered).mark_line().encode(
     y='sales', 
     color = 'saledate:N'
     ).properties(
-    width=1000,
-    height=200
+    width=1500,
+    height=500
 )
 
 st.altair_chart(c)
