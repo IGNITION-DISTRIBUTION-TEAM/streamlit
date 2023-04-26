@@ -41,18 +41,12 @@ metric = df_filtered['sales'].sum()
 
 st.metric('Sales',metric)
 
-st.subheader('Total Agents ')
-st.line_chart(df_filtered,x="salehour",y="sales")
-
-
-
-
 c = alt.Chart(df_filtered).mark_line().encode(
     x='salehour', 
     y='sales', 
     color = 'saledate:N'
     ).properties(
-    width=1500,
+    width=1200,
     height=500
 )
 
