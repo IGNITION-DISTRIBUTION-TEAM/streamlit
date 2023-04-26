@@ -5,6 +5,7 @@ import snowflake.connector
 from snowflake.sqlalchemy import URL
 from sqlalchemy import create_engine
 from datetime import datetime
+import altair as alt
 
 st.set_page_config(layout="wide")
 st.title('Ignition Sales')
