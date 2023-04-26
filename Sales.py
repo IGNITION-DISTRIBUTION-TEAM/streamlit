@@ -19,4 +19,4 @@ DATAUPDATE = pd.read_sql(query, connection)
 
 
 with st.sidebar:
-    option = st.selectbox('Please select a campaign',DATAUPDATE["CampaignName"].unique())
+    option = st.selectbox('Please select a campaign',DATAUPDATE["campaignname"].unique())
