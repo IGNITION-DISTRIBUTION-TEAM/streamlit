@@ -52,7 +52,7 @@ c = alt.Chart(df_filtered).mark_line().encode(
     y='sales', 
     color = 'saledate:N'
     ).properties(
-    width=100,
+    width=1000,
     height=200
 )
 
