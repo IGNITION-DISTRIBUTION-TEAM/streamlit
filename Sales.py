@@ -42,3 +42,14 @@ st.metric('Sales',metric)
 
 st.subheader('Total Agents ')
 st.line_chart(df_filtered,x="salehour",y="sales")
+
+
+
+
+c = alt.Chart(df_filtered).mark_line().encode(
+    x='salehour', 
+    y='sales', 
+    color = 'Name:N'
+    )
+
+st.altair_chart(c)
