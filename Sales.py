@@ -47,14 +47,14 @@ st.title('Onair Campaign Stats')
 
 # col4, col5, col6 = st.columns(3)
 
-with col4:
-   st.subheader('Sales Rate')
-   st.line_chart(rslt_df,x="date",y="salesrate")
+# with col4:
+#    st.subheader('Sales Rate')
+#    st.line_chart(rslt_df,x="date",y="salesrate")
 
-with col5:
-   st.subheader('Contact conversion')
-   st.line_chart(rslt_df,x="date",y="contact_conversion")
+# with col5:
+#    st.subheader('Contact conversion')
+#    st.line_chart(rslt_df,x="date",y="contact_conversion")
 
-with col6:
-   st.subheader('RPC conversion')
-   st.line_chart(rslt_df,x="date",y="rpc_conversion")
+# with col6:
+#    st.subheader('RPC conversion')
+#    st.line_chart(rslt_df,x="date",y="rpc_conversion")
