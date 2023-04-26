@@ -51,6 +51,7 @@ c = alt.Chart(df_filtered).mark_line().encode(
     x='salehour', 
     y='sales', 
     color = 'saledate:N'
+    use_container_width=True
     )
 
 st.altair_chart(c)
