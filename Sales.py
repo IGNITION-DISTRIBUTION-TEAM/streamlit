@@ -33,13 +33,6 @@ with st.sidebar:
     
     start_date = st.date_input("Start Date", value=pd.to_datetime("2021-01-31", format="%Y-%m-%d"))
     end_date = st.date_input("End Date", value=pd.to_datetime("today", format="%Y-%m-%d"))
-
-# convert the dates to string
-start = start_date.strftime("%Y-%m-%d")
-end = end_date.strftime("%Y-%m-%d")
-
-st.table(Series.loc[start:end]
-    
     
 df_filtered = DATAUPDATE[(DATAUPDATE['campaignname'] == option) & (DATAUPDATE['providername'] == option2) & (DATAUPDATE['providertype'] == option3)]
 
