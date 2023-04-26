@@ -26,7 +26,7 @@ with st.sidebar:
     providertypes = DATAUPDATE["providertype"].loc[DATAUPDATE["campaignname"] == option]
     option3 = st.selectbox('Please select a providertype',providertypes.unique())
     
-   
+df_filtered = DATAUPDATE[DATAUPDATE['campaignname'].isin(option) & DATAUPDATE['providername'].isin(option2) & DATAUPDATE['providertype'].isin(option3)]
 
 st.subheader('Total Agents ')
-st.line_chart(DATAUPDATE,x="saledate",y="sales")
+st.line_chart(df_filtered,x="saledate",y="sales")
