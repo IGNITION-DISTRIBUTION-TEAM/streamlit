@@ -8,7 +8,15 @@ from sqlalchemy import create_engine
 st.set_page_config(layout="wide")
 st.title('Ignition Sales')
 
+url = URL(**st.secrets["snowflake"])
+
+engine = create_engine(url)
+connection = engine.connect()
+
+query = "select * from DATAWAREHOUSE.DISTRIBUTION_DATA_APPLICATION.VW_AD_SALES_UPDATED"
+
+DATAUPDATE = pd.read_sql(query, connection)
 
 
-
-
+with st.sidebar:
+    option = st.selectbox('Please select a campaign',DATAUPDATE["CampaignName"].unique())
