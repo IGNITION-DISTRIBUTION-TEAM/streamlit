@@ -20,6 +20,6 @@ DATAUPDATE = pd.read_sql(query, connection)
 
 with st.sidebar:
     option = st.selectbox('Please select a campaign',DATAUPDATE["campaignname"].unique())
-    option2 = st.selectbox('Please select a providername',DATAUPDATE["providername"].unique())
+    providernames = df["providername"].loc[df["campaignname"] = option]
+    option2 = st.selectbox('Please select a providername',providernames)
 
-st.dataframe(option)
