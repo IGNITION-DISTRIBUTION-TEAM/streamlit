@@ -35,7 +35,7 @@ df_filtered = DATAUPDATE.loc[mask]
 
 df_filtered = df_filtered[(DATAUPDATE['campaignname'] == option) & (df_filtered['providername'] == option2) & (df_filtered['providertype'] == option3)]
 
-metric = df_filtered['Sales'].sum()
+metric = df_filtered['sales'].sum()
 
 st.metric(label=metric)
 
