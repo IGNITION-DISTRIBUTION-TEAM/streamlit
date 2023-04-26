@@ -29,7 +29,7 @@ with st.sidebar:
     start_date = st.date_input("Start Date", value=pd.to_datetime("2021-01-31", format="%Y-%m-%d"))
     end_date = st.date_input("End Date", value=pd.to_datetime("today", format="%Y-%m-%d"))
    
-mask = (DATAUPDATE['saledate'] > start_date) & (DATAUPDATE['saledate'] <= end_date)
+mask = (DATAUPDATE['saledate'] >= start_date) & (DATAUPDATE['saledate'] <= end_date)
 
 df_filtered = DATAUPDATE.loc[mask]
 
