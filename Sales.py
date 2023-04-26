@@ -23,3 +23,5 @@ with st.sidebar:
     providernames = DATAUPDATE["providername"].loc[DATAUPDATE["campaignname"] == option]
     option2 = st.selectbox('Please select a providername',providernames.unique())
 
+    providertypes = DATAUPDATE["providertype"].loc[DATAUPDATE["campaignname"] == option]
+    option3 = st.selectbox('Please select a providertype',providertypes.unique())
