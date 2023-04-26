@@ -10,14 +10,14 @@ from sqlalchemy import create_engine
 
 st.set_page_config(layout="wide")
 
-url = URL(**st.secrets["snowflake"])
+# url = URL(**st.secrets["snowflake"])
 
-engine = create_engine(url)
-connection = engine.connect()
+# engine = create_engine(url)
+# connection = engine.connect()
 
-query = "select * from DATAWAREHOUSE.DISTRIBUTION_DATA_APPLICATION.TM_AD_ONAIR_PERFORMANCE_STATS"
+# query = "select * from DATAWAREHOUSE.DISTRIBUTION_DATA_APPLICATION.TM_AD_ONAIR_PERFORMANCE_STATS"
 
-DATAUPDATE = pd.read_sql(query, connection)
+# DATAUPDATE = pd.read_sql(query, connection)
 
 
 st.title('Ignition Sales')
