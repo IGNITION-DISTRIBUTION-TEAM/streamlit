@@ -35,5 +35,10 @@ df_filtered = DATAUPDATE.loc[mask]
 
 df_filtered = df_filtered[(DATAUPDATE['campaignname'] == option) & (df_filtered['providername'] == option2) & (df_filtered['providertype'] == option3)]
 
+
+metric = df_filtered.sum(['sales'])
+
+st.metric(label=metric)
+
 st.subheader('Total Agents ')
 st.line_chart(df_filtered,x="salehour",y="sales")
