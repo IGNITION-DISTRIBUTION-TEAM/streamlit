@@ -51,8 +51,9 @@ c = alt.Chart(df_filtered).mark_line().encode(
     x='salehour', 
     y='sales', 
     color = 'saledate:N'
-    (chart + annotation_layer).interactive(),
-    use_container_width=True
-    )
+    ).properties(
+    width='container',
+    height=200
+)
 
 st.altair_chart(c)
