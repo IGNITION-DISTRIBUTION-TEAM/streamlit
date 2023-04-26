@@ -43,7 +43,7 @@ st.metric('Sales',metric)
 
 c = alt.Chart(df_filtered).mark_line().encode(
     x='salehour', 
-    y='sales', 
+    y='sum(sales)', 
     color = 'saledate:N'
     ).properties(
     width=1200,
