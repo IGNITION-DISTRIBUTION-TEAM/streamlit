@@ -20,7 +20,7 @@ query = "select * from DATAWAREHOUSE.DISTRIBUTION_DATA_APPLICATION.TM_AD_ONAIR_P
 DATAUPDATE = pd.read_sql(query, connection)
 
 
-st.title('Onair Campaign Stats')
+st.title('Ignition Sales')
 
 # with st.sidebar:
 #     option = st.selectbox('Please select a campaign',DATAUPDATE["campaignname"].unique())
