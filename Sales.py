@@ -35,26 +35,23 @@ with st.sidebar:
     start_date = st.date_input("Start Date", value=pd.to_datetime("2021-01-31", format="%Y-%m-%d"))
     end_date = st.date_input("End Date", value=pd.to_datetime("today", format="%Y-%m-%d"))
     
-#     df_filtered = df_filtered[(DATAUPDATE['campaignname'].isin(option1)) & (df_filtered['providername'] == option2) & (df_filtered['providertype'] == option3)]
-    
-    
     df_filtered = DATAUPDATE[DATAUPDATE['campaignname'].isin(option1) & (DATAUPDATE['providername'] == option2) & (DATAUPDATE['providertype'] == option3)]
     mask = (df_filtered['saledate'] >= start_date) & (df_filtered['saledate'] <= end_date)
     df_filtered = df_filtered.loc[mask]
     
 st.dataframe(df_filtered)    
 
-# metric = df_filtered['sales'].sum()
+metric = df_filtered['sales'].sum()
 
-# st.metric('Sales',metric)
+st.metric('Sales',metric)
 
-# c = alt.Chart(df_filtered).mark_line().encode(
-#     x='salehour', 
-#     y='sum(sales)', 
-#     color = 'saledate:N'
-#     ).properties(
-#     width=1200,
-#     height=500
-# )
+c = alt.Chart(df_filtered).mark_line().encode(
+    x='salehour', 
+    y='sum(sales)', 
+    color = 'saledate:N'
+    ).properties(
+    width=1200,
+    height=500
+)
 
-# st.altair_chart(c)
+st.altair_chart(c)
