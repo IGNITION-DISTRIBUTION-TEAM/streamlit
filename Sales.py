@@ -38,7 +38,9 @@ with st.sidebar:
 #     df_filtered = df_filtered[(DATAUPDATE['campaignname'].isin(option1)) & (df_filtered['providername'] == option2) & (df_filtered['providertype'] == option3)]
     
     
-    df_filtered = DATAUPDATE[DATAUPDATE['campaignname'].isin(option1)]
+    df_filtered = DATAUPDATE[DATAUPDATE['campaignname'].isin(option1) & (df_filtered['providername'] == option2) & (df_filtered['providertype'] == option3)]
+    
+    
    
 #     mask = (DATAUPDATE['saledate'] >= start_date) & (DATAUPDATE['saledate'] <= end_date)
 #     df_filtered = DATAUPDATE.loc[mask]
