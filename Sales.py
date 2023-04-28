@@ -22,12 +22,11 @@ def load_data(url):
     
     DATAUPDATE = pd.read_sql(query, connection)
     
+    DATAUPDATE = DATAUPDATE.sort_values(by=['campaignname'])
+    
     return DATAUPDATE
 
-DATAUPDATE = st.dataframe(DATAUPDATE)
-
 with st.sidebar:
-    DATAUPDATE = DATAUPDATE.sort_values(by=['campaignname'])
     option = st.selectbox('Please select a campaign',DATAUPDATE["campaignname"].unique())
     providernames = DATAUPDATE["providername"].loc[DATAUPDATE["campaignname"] == option]
     option2 = st.selectbox('Please select a providername',providernames.unique())
