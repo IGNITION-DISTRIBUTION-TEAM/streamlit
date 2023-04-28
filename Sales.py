@@ -7,28 +7,27 @@ from sqlalchemy import create_engine
 from datetime import datetime
 import altair as alt
 
+url = URL(**st.secrets["snowflake"])
+
 st.set_page_config(layout="wide")
 st.title('Ignition Sales')
 
-url = URL(**st.secrets["snowflake"])
-
-
-@st.cache_data  # 👈 Add the caching decorator
+@st.cache_data
 def load_data(url):
     engine = create_engine(url)
-    connection = engine.connect()
-    
-    query = "select * from DATAWAREHOUSE.DISTRIBUTION_DATA_APPLICATION.VW_AD_SALES_UPDATED"
-    
+    connection = engine.connect()    
+    query = "select * from DATAWAREHOUSE.DISTRIBUTION_DATA_APPLICATION.VW_AD_SALES_UPDATED"    
     DATAUPDATE = pd.read_sql(query, connection)
-
     return DATAUPDATE
 
 DATAUPDATE = load_data(url)
 
-
 with st.sidebar:
-    option = st.selectbox('Please select a campaign',DATAUPDATE["campaignname"].unique())
+    #option = st.selectbox('Please select a campaign',DATAUPDATE["campaignname"].unique())
+    option = st.multiselect('Please select a campaign',DATAUPDATE["campaignname"].unique())
+    
+    DATAUPDATE = (DATAUPDATE['campaignname'].isin(option))
+    
     providernames = DATAUPDATE["providername"].loc[DATAUPDATE["campaignname"] == option]
     option2 = st.selectbox('Please select a providername',providernames.unique())
 
