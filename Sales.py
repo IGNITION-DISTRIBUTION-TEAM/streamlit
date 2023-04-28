@@ -26,10 +26,8 @@ with st.sidebar:
     #option = st.selectbox('Please select a campaign',DATAUPDATE["campaignname"].unique())
     option1 = st.multiselect('Please select a campaign',DATAUPDATE["campaignname"].unique())
     
-#     option1 = (DATAUPDATE['campaignname'].isin(option1))
-    
-#     providernames = DATAUPDATE["providername"].loc[DATAUPDATE['campaignname'].isin(option1)]
-#     option2 = st.selectbox('Please select a providername',providernames.unique())
+    providernames = DATAUPDATE["providername"].loc[DATAUPDATE['campaignname'].isin(option1)]
+    option2 = st.selectbox('Please select a providername',providernames.unique())
 
 #     providertypes = DATAUPDATE["providertype"].loc[DATAUPDATE['campaignname'].isin(option1)]
 #     option3 = st.selectbox('Please select a providertype',providertypes.unique())
