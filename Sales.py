@@ -42,6 +42,8 @@ with st.sidebar:
     df_filtered = DATAUPDATE.loc[mask]
 
     df_filtered = df_filtered[(DATAUPDATE['campaignname'] == option) & (df_filtered['providername'] == option2) & (df_filtered['providertype'] == option3)]
+    
+st.dataframe(option)    
 
 metric = df_filtered['sales'].sum()
 
