@@ -32,16 +32,16 @@ with st.sidebar:
     providertypes = DATAUPDATE["providertype"].loc[DATAUPDATE['campaignname'].isin(option1) & DATAUPDATE['providername'].isin(providernames)]
     option3 = st.selectbox('Please select a providertype',providertypes.unique())
     
-#     start_date = st.date_input("Start Date", value=pd.to_datetime("2021-01-31", format="%Y-%m-%d"))
-#     end_date = st.date_input("End Date", value=pd.to_datetime("today", format="%Y-%m-%d"))
+    start_date = st.date_input("Start Date", value=pd.to_datetime("2021-01-31", format="%Y-%m-%d"))
+    end_date = st.date_input("End Date", value=pd.to_datetime("today", format="%Y-%m-%d"))
    
-#     mask = (DATAUPDATE['saledate'] >= start_date) & (DATAUPDATE['saledate'] <= end_date)
+    mask = (DATAUPDATE['saledate'] >= start_date) & (DATAUPDATE['saledate'] <= end_date)
 
-#     df_filtered = DATAUPDATE.loc[mask]
+df_filtered = DATAUPDATE.loc[mask]
 
-#     df_filtered = df_filtered[(DATAUPDATE['campaignname'] == option1) & (df_filtered['providername'] == option2) & (df_filtered['providertype'] == option3)]
+df_filtered = df_filtered[(DATAUPDATE['campaignname'] == option1) & (df_filtered['providername'] == option2) & (df_filtered['providertype'] == option3)]
     
-st.dataframe(providernames)    
+st.dataframe(df_filtered)    
 
 # metric = df_filtered['sales'].sum()
 
