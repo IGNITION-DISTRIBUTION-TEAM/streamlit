@@ -36,9 +36,9 @@ with st.sidebar:
     end_date = st.date_input("End Date", value=pd.to_datetime("today", format="%Y-%m-%d"))
    
 mask = (DATAUPDATE['saledate'] >= start_date) & (DATAUPDATE['saledate'] <= end_date)
-df_filtered = DATAUPDATE.loc[mask]
+# df_filtered = DATAUPDATE.loc[mask]
 # df_filtered = df_filtered[(DATAUPDATE['campaignname'] == option1) & (df_filtered['providername'] == option2) & (df_filtered['providertype'] == option3)]
-# st.dataframe(df_filtered)    
+st.dataframe(df_filtered)    
 
 # metric = df_filtered['sales'].sum()
 
