@@ -41,7 +41,7 @@ with st.sidebar:
 
     df_filtered = DATAUPDATE.loc[mask]
 
-    df_filtered = df_filtered[(DATAUPDATE['campaignname'] == option) & (df_filtered['providername'] == option2) & (df_filtered['providertype'] == option3)]
+    df_filtered = df_filtered[(DATAUPDATE['campaignname'] == option1) & (df_filtered['providername'] == option2) & (df_filtered['providertype'] == option3)]
     
 st.dataframe(option1)    
 
