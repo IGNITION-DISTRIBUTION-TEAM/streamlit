@@ -24,7 +24,7 @@ DATAUPDATE = load_data(url)
 
 with st.sidebar:
     #option = st.selectbox('Please select a campaign',DATAUPDATE["campaignname"].unique())
-    option = st.multiselect('Please select a campaign',DATAUPDATE["campaignname"].unique())
+    option1 = st.multiselect('Please select a campaign',DATAUPDATE["campaignname"].unique())
     
     option = (DATAUPDATE['campaignname'].isin(option))
     
@@ -43,7 +43,7 @@ with st.sidebar:
 
     df_filtered = df_filtered[(DATAUPDATE['campaignname'] == option) & (df_filtered['providername'] == option2) & (df_filtered['providertype'] == option3)]
     
-st.dataframe(option)    
+st.dataframe(option1)    
 
 metric = df_filtered['sales'].sum()
 
