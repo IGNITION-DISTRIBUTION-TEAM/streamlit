@@ -23,7 +23,7 @@ def load_data(url):
 DATAUPDATE = load_data(url)
 
 with st.sidebar:
-    #option = st.selectbox('Please select a campaign',DATAUPDATE["campaignname"].unique())
+    DATAUPDATE = DATAUPDATE.sort_values(by=['campaignname'])
     option1 = st.multiselect('Please select a campaign',DATAUPDATE["campaignname"].unique())
     
     providernames = DATAUPDATE["providername"].loc[DATAUPDATE['campaignname'].isin(option1)]
