@@ -12,12 +12,17 @@ st.title('Ignition Sales')
 
 url = URL(**st.secrets["snowflake"])
 
-engine = create_engine(url)
-connection = engine.connect()
 
-query = "select * from DATAWAREHOUSE.DISTRIBUTION_DATA_APPLICATION.VW_AD_SALES_UPDATED"
-
-DATAUPDATE = pd.read_sql(query, connection)
+@st.cache_data  # 👈 Add the caching decorator
+def load_data(url):
+    engine = create_engine(url)
+    connection = engine.connect()
+    
+    query = "select * from DATAWAREHOUSE.DISTRIBUTION_DATA_APPLICATION.VW_AD_SALES_UPDATED"
+    
+    DATAUPDATE = pd.read_sql(query, connection)
+    
+    return DATAUPDATE
 
 with st.sidebar:
     DATAUPDATE = DATAUPDATE.sort_values(by=['campaignname'])
