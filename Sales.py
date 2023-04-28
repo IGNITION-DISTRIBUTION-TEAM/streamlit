@@ -24,6 +24,9 @@ def load_data(url):
 
     return DATAUPDATE
 
+DATAUPDATE = load_data(url)
+
+
 with st.sidebar:
     option = st.selectbox('Please select a campaign',DATAUPDATE["campaignname"].unique())
     providernames = DATAUPDATE["providername"].loc[DATAUPDATE["campaignname"] == option]
