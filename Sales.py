@@ -26,12 +26,12 @@ with st.sidebar:
     #option = st.selectbox('Please select a campaign',DATAUPDATE["campaignname"].unique())
     option1 = st.multiselect('Please select a campaign',DATAUPDATE["campaignname"].unique())
     
-    option = (DATAUPDATE['campaignname'].isin(option))
+    option1 = (DATAUPDATE['campaignname'].isin(option1))
     
-    providernames = DATAUPDATE["providername"].loc[DATAUPDATE['campaignname'].isin(option)]
+    providernames = DATAUPDATE["providername"].loc[DATAUPDATE['campaignname'].isin(option1)]
     option2 = st.selectbox('Please select a providername',providernames.unique())
 
-    providertypes = DATAUPDATE["providertype"].loc[DATAUPDATE['campaignname'].isin(option)]
+    providertypes = DATAUPDATE["providertype"].loc[DATAUPDATE['campaignname'].isin(option1)]
     option3 = st.selectbox('Please select a providertype',providertypes.unique())
     
     start_date = st.date_input("Start Date", value=pd.to_datetime("2021-01-31", format="%Y-%m-%d"))
