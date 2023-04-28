@@ -24,6 +24,8 @@ def load_data(url):
     
     return DATAUPDATE
 
+DATAUPDATE = st.dataframe(DATAUPDATE)
+
 with st.sidebar:
     DATAUPDATE = DATAUPDATE.sort_values(by=['campaignname'])
     option = st.selectbox('Please select a campaign',DATAUPDATE["campaignname"].unique())
