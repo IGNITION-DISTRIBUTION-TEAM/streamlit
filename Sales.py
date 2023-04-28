@@ -38,7 +38,7 @@ with st.sidebar:
 #     df_filtered = df_filtered[(DATAUPDATE['campaignname'].isin(option1)) & (df_filtered['providername'] == option2) & (df_filtered['providertype'] == option3)]
     
     
-    df_filtered = DATAUPDATE[DATAUPDATE['campaignname'].isin(option1) & (df_filtered['providername'] == option2) & (df_filtered['providertype'] == option3)]
+    df_filtered = DATAUPDATE[DATAUPDATE['campaignname'].isin(option1) & (DATAUPDATE['providername'] == option2) & (DATAUPDATE['providertype'] == option3)]
     
     
    
