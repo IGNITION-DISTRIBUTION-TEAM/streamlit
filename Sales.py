@@ -28,34 +28,34 @@ with st.sidebar:
     
     option1 = (DATAUPDATE['campaignname'].isin(option1))
     
-    providernames = DATAUPDATE["providername"].loc[DATAUPDATE['campaignname'].isin(option1)]
-    option2 = st.selectbox('Please select a providername',providernames.unique())
+#     providernames = DATAUPDATE["providername"].loc[DATAUPDATE['campaignname'].isin(option1)]
+#     option2 = st.selectbox('Please select a providername',providernames.unique())
 
-    providertypes = DATAUPDATE["providertype"].loc[DATAUPDATE['campaignname'].isin(option1)]
-    option3 = st.selectbox('Please select a providertype',providertypes.unique())
+#     providertypes = DATAUPDATE["providertype"].loc[DATAUPDATE['campaignname'].isin(option1)]
+#     option3 = st.selectbox('Please select a providertype',providertypes.unique())
     
-    start_date = st.date_input("Start Date", value=pd.to_datetime("2021-01-31", format="%Y-%m-%d"))
-    end_date = st.date_input("End Date", value=pd.to_datetime("today", format="%Y-%m-%d"))
+#     start_date = st.date_input("Start Date", value=pd.to_datetime("2021-01-31", format="%Y-%m-%d"))
+#     end_date = st.date_input("End Date", value=pd.to_datetime("today", format="%Y-%m-%d"))
    
-    mask = (DATAUPDATE['saledate'] >= start_date) & (DATAUPDATE['saledate'] <= end_date)
+#     mask = (DATAUPDATE['saledate'] >= start_date) & (DATAUPDATE['saledate'] <= end_date)
 
-    df_filtered = DATAUPDATE.loc[mask]
+#     df_filtered = DATAUPDATE.loc[mask]
 
-    df_filtered = df_filtered[(DATAUPDATE['campaignname'] == option1) & (df_filtered['providername'] == option2) & (df_filtered['providertype'] == option3)]
+#     df_filtered = df_filtered[(DATAUPDATE['campaignname'] == option1) & (df_filtered['providername'] == option2) & (df_filtered['providertype'] == option3)]
     
 st.dataframe(option1)    
 
-metric = df_filtered['sales'].sum()
+# metric = df_filtered['sales'].sum()
 
-st.metric('Sales',metric)
+# st.metric('Sales',metric)
 
-c = alt.Chart(df_filtered).mark_line().encode(
-    x='salehour', 
-    y='sum(sales)', 
-    color = 'saledate:N'
-    ).properties(
-    width=1200,
-    height=500
-)
+# c = alt.Chart(df_filtered).mark_line().encode(
+#     x='salehour', 
+#     y='sum(sales)', 
+#     color = 'saledate:N'
+#     ).properties(
+#     width=1200,
+#     height=500
+# )
 
-st.altair_chart(c)
+# st.altair_chart(c)
