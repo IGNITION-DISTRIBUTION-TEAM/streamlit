@@ -21,9 +21,7 @@ def load_data(url):
     query = "select * from DATAWAREHOUSE.DISTRIBUTION_DATA_APPLICATION.VW_AD_SALES_UPDATED"
     
     DATAUPDATE = pd.read_sql(query, connection)
-    
-    DATAUPDATE = DATAUPDATE.sort_values(by=['campaignname'])
-    
+
     return DATAUPDATE
 
 with st.sidebar:
