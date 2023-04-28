@@ -62,7 +62,7 @@ d = alt.Chart(df_filtered).mark_bar().encode(
     color = 'campaignname:N',
     column='saledate:N'
     ).properties(
-    width=500,
+    width=100,
     height=500
 )
 
