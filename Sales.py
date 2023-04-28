@@ -28,10 +28,10 @@ with st.sidebar:
     
     option = (DATAUPDATE['campaignname'].isin(option))
     
-    providernames = DATAUPDATE["providername"].loc[DATAUPDATE["campaignname"] == option]
+    providernames = DATAUPDATE["providername"].loc[DATAUPDATE['campaignname'].isin(option)]
     option2 = st.selectbox('Please select a providername',providernames.unique())
 
-    providertypes = DATAUPDATE["providertype"].loc[DATAUPDATE["campaignname"] == option]
+    providertypes = DATAUPDATE["providertype"].loc[DATAUPDATE['campaignname'].isin(option)]
     option3 = st.selectbox('Please select a providertype',providertypes.unique())
     
     start_date = st.date_input("Start Date", value=pd.to_datetime("2021-01-31", format="%Y-%m-%d"))
