@@ -53,3 +53,16 @@ c = alt.Chart(df_filtered).mark_line().encode(
 )
 
 st.altair_chart(c)
+
+
+
+d = alt.Chart(df_filtered).mark_bar().encode(
+    x='campaignname', 
+    y='sum(sales)', 
+    color = 'saledate:N'
+    ).properties(
+    width=1200,
+    height=500
+)
+
+st.altair_chart(d)
