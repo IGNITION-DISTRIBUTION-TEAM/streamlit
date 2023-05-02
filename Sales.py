@@ -43,16 +43,17 @@ metric = df_filtered['sales'].sum()
 
 st.metric('Sales',metric)
 
-c = alt.Chart(df_filtered).mark_line().encode(
+col1, col2= st.columns(2)
+
+with col1:
+    c = alt.Chart(df_filtered).mark_line().encode(
     x='salehour', 
     y='sum(sales)', 
     color = 'saledate:N'
     ).properties(
     width=1200,
-    height=500
-)
-
-st.altair_chart(c)
+    height=500)
+    st.altair_chart(c)
 
 
 
@@ -63,7 +64,6 @@ d = alt.Chart(df_filtered).mark_bar().encode(
     column='saledate:N'
     ).properties(
     width=100,
-    height=500
-)
+    height=500)
 
 st.altair_chart(d)
