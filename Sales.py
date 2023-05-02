@@ -12,7 +12,7 @@ url = URL(**st.secrets["snowflake"])
 st.set_page_config(layout="wide")
 st.title('Ignition Sales')
 
-@st.cache_data
+@st.cache_data(ttl=60)
 def load_data(url):
     engine = create_engine(url)
     connection = engine.connect()    
