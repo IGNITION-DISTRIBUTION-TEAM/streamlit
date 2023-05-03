@@ -23,17 +23,11 @@ def load_data(url):
     return DATAUPDATE
 
 snowflakedata = load_data(url)
-
-
-snowflakedata['saledate'] = pd.to_datetime(snowflakedata['saledate'], format='%Y-%m-%d')
+# snowflakedata['saledate'] = pd.to_datetime(snowflakedata['saledate'], format='%Y-%m-%d')
 
 current_date_mask = snowflakedata[(snowflakedata['saledate'] == current_date)]
-# df_singleday = snowflakedata.loc[current_date_mask]
-
 
 st.write(current_date)
-
-
 st.dataframe(current_date_mask)
 
 with st.sidebar:
