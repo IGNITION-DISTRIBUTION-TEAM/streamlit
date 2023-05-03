@@ -49,7 +49,7 @@ st.metric('Sales',metric)
 col1,col2 = st.columns(2)
 
 with col1:
-    c = alt.Chart(current_date_mask_filtered).mark_line().encode(
+    c = alt.Chart(current_date_mask).mark_line().encode(
     x='salehour', 
     y='sum(sales)', 
     color = 'saledate:N'
