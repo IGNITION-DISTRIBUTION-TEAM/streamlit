@@ -75,7 +75,7 @@ with col3:
     column='saledate:N',
     ).properties(
     width=100,
-    height=500)
+    height=300)
     st.altair_chart(d)
 
 df_average = DATAUPDATE[DATAUPDATE['campaignname'].isin(option1) & (DATAUPDATE['providername'] == option2) & (DATAUPDATE['providertype'] == option3)]
