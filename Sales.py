@@ -23,7 +23,7 @@ def load_data(url):
     return DATAUPDATE
 
 snowflakedata = load_data(url)
-current_date_mask = snowflakedata.loc[(snowflakedata['saledate'] == pd.Timestamp(datetime.now()))]
+
 
 with st.sidebar:
     snowflakedata = snowflakedata.sort_values(by=['campaignname'])
@@ -42,10 +42,7 @@ with st.sidebar:
     mask = (df_filtered['saledate'] >= start_date) & (df_filtered['saledate'] <= end_date)
     df_filtered = df_filtered.loc[mask]  
     
-    current_date_mask_filtered = current_date_mask[current_date_mask['campaignname'].isin(option1) & (current_date_mask['providername'] == option2) & (current_date_mask['providertype'] == option3)]
-#     mask2 = (current_date_mask_filtered['saledate'] >= start_date) & (current_date_mask_filtered['saledate'] <= end_date)
-#     current_date_mask_filtered = df_filtered.loc[mask2]  
-    
+current_date_mask = df_filtered.loc[(df_filtered['saledate'] == pd.Timestamp(datetime.now()))]    
 
 metric = df_filtered['sales'].sum()
 st.metric('Sales',metric)
