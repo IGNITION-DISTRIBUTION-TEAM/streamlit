@@ -26,10 +26,11 @@ snowflakedata = load_data(url)
 # snowflakedata['saledate'] = pd.to_datetime(snowflakedata['saledate'], format='%Y-%m-%d')
 
 # current_date_mask = snowflakedata[(snowflakedata['saledate'] == current_date)]
-current_date_mask = snowflakedata.loc[snowflakedata['saledate'].datetime.date >= date.today()]
+current_date_mask = snowflakedata.loc[(snowflakedata['saledate'] < current_date)]
 
 st.write(current_date)
 st.dataframe(current_date_mask)
+st.dataframe(snowflakedata)
 
 with st.sidebar:
     snowflakedata = snowflakedata.sort_values(by=['campaignname'])
