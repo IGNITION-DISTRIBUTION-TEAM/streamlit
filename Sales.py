@@ -85,4 +85,4 @@ e = alt.Chart(df_average).mark_line().encode(
     ).properties(
     width=1200,
     height=500)
-    st.altair_chart(e)
+st.altair_chart(e)
