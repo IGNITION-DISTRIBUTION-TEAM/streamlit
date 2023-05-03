@@ -72,6 +72,9 @@ df_average = snowflakedata[snowflakedata['campaignname'].isin(option1) & (snowfl
 df_average = df_average.groupby(['campaignname','salehour','saledate'])['sales'].sum().reset_index()
 df_average = df_average.groupby(['campaignname','salehour',])['sales'].mean().reset_index()
 
+st.dataframe(df_average)
+# df_average['Val_1_minus_10'] = current_date_mask['Val1'] - df_average['Val10']
+
 col3,col4 = st.columns(2)
 
 with col3:
@@ -95,7 +98,6 @@ with col4:
     st.altair_chart(c)
     
 col5 = st.columns(1)    
-    
     
 with col5:
     d = alt.Chart(df_filtered).mark_bar().encode(
