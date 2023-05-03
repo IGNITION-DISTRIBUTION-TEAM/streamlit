@@ -76,7 +76,7 @@ d = alt.Chart(df_filtered).mark_bar().encode(
 
 st.altair_chart(d)
 
-df_average = df_filtered.groupby(['campaignname'])['sales'].mean()
+df_average = df_filtered.groupby(['campaignname','salehour'])['sales'].mean()
 
 
 st.dataframe(df_average)
