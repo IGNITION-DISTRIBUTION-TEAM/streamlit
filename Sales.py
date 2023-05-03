@@ -26,7 +26,9 @@ snowflakedata = load_data(url)
 # snowflakedata['saledate'] = pd.to_datetime(snowflakedata['saledate'], format='%Y-%m-%d')
 
 # current_date_mask = snowflakedata[(snowflakedata['saledate'] == current_date)]
-current_date_mask = snowflakedata.loc[(snowflakedata['saledate'] == current_date)]
+# current_date_mask = snowflakedata.loc[(snowflakedata['saledate'] == current_date)]
+
+current_date_mask = snowflakedata.loc[snowflakedata['saledate'] == pd.Timestamp(datetime.now()), 'saledate'].to_frame()
 
 st.write(current_date)
 st.dataframe(current_date_mask)
