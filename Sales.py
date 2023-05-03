@@ -7,6 +7,9 @@ from sqlalchemy import create_engine
 from datetime import datetime
 import altair as alt
 
+
+current_date = datetime.today().strftime('%Y-%m-%d')
+
 url = URL(**st.secrets["snowflake"])
 
 st.set_page_config(layout="wide")
@@ -20,7 +23,12 @@ def load_data(url):
     DATAUPDATE = pd.read_sql(query, connection)
     return DATAUPDATE
 
-DATAUPDATE = load_data(url)
+snowflakedata = load_data(url)
+
+current_date_mask = (snowflakedata['saledate'] == current_date))
+df_singleday = snowflakedata.loc[mask]  
+
+st.dataframe(df_singleday)
 
 with st.sidebar:
     DATAUPDATE = DATAUPDATE.sort_values(by=['campaignname'])
@@ -40,9 +48,7 @@ with st.sidebar:
     df_filtered = df_filtered.loc[mask]  
 
 metric = df_filtered['sales'].sum()
-
 st.metric('Sales',metric)
-
 col1,col2 = st.columns(2)
 
 with col1:
@@ -81,8 +87,6 @@ with col3:
 df_average = DATAUPDATE[DATAUPDATE['campaignname'].isin(option1) & (DATAUPDATE['providername'] == option2) & (DATAUPDATE['providertype'] == option3)]
 df_average = df_average.groupby(['campaignname','salehour','saledate'])['sales'].sum().reset_index()
 df_average = df_average.groupby(['campaignname','salehour',])['sales'].mean().reset_index()
-
-st.dataframe(df_average)
 
 with col4:
     e = alt.Chart(df_average).mark_line().encode(
