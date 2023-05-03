@@ -43,7 +43,7 @@ metric = df_filtered['sales'].sum()
 
 st.metric('Sales',metric)
 
-col1, col2= st.columns(2)
+col1,col2,col3,col4 = st.columns(4)
 
 with col1:
     c = alt.Chart(df_filtered).mark_line().encode(
@@ -65,7 +65,8 @@ with col2:
     height=500)
     st.altair_chart(c)
 
-d = alt.Chart(df_filtered).mark_bar().encode(
+with col3:
+    d = alt.Chart(df_filtered).mark_bar().encode(
     x='campaignname:O', 
     y='sum(sales)', 
     color = 'campaignname:N',
@@ -73,17 +74,17 @@ d = alt.Chart(df_filtered).mark_bar().encode(
     ).properties(
     width=100,
     height=500)
-
-st.altair_chart(d)
+    st.altair_chart(d)
 
 df_average = DATAUPDATE[DATAUPDATE['campaignname'].isin(option1) & (DATAUPDATE['providername'] == option2) & (DATAUPDATE['providertype'] == option3)]
 df_average = df_average.groupby(['campaignname','salehour'])['sales'].mean().reset_index()
 
-e = alt.Chart(df_average).mark_line().encode(
+with col4:
+    e = alt.Chart(df_average).mark_line().encode(
     x='salehour', 
     y='sum(sales)', 
     color = 'campaignname:N'
     ).properties(
     width=1200,
     height=500)
-st.altair_chart(e)
+    st.altair_chart(e)
