@@ -7,7 +7,7 @@ from sqlalchemy import create_engine
 from datetime import datetime
 import altair as alt
 
-current_date = datetime.today().strftime('%Y-%m-%d')+'00:00:00'
+current_date = datetime.today().strftime('%Y-%m-%d')+' 00:00:00'
 
 url = URL(**st.secrets["snowflake"])
 
