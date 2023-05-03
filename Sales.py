@@ -81,8 +81,8 @@ df_average = df_filtered.groupby(['campaignname','salehour'])['sales'].mean()
 st.dataframe(df_average)
 
 e = alt.Chart(df_average).mark_line().encode(
-    x='salehour', 
-    y='sum(sales)', 
+    x='salehour:Q', 
+    y='sales', 
     color = 'campaignname:N'
     ).properties(
     width=1200,
