@@ -88,7 +88,7 @@ with col4:
     e = alt.Chart(df_average).mark_line().encode(
     x='salehour', 
     y='sum(sales)', 
-    color = 'campaignname:N'
+    color = 'saledate:N'
     ).properties(
     width=1200,
     height=500)
