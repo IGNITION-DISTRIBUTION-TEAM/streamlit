@@ -10,6 +10,8 @@ import altair as alt
 
 current_date = datetime.today().strftime('%Y-%m-%d')
 
+st.write(current_date)
+
 url = URL(**st.secrets["snowflake"])
 
 st.set_page_config(layout="wide")
