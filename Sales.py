@@ -84,15 +84,12 @@ df_average = df_average.groupby(['campaignname','salehour',])['sales'].mean().re
 
 st.dataframe(df_average)
 
-
-
-
-# with col4:
-#     e = alt.Chart(df_average).mark_line().encode(
-#     x='salehour', 
-#     y='sum(sales)', 
-#     color = 'campaignname:N'
-#     ).properties(
-#     width=1200,
-#     height=500)
-#     st.altair_chart(e)
+with col4:
+    e = alt.Chart(df_average).mark_line().encode(
+    x='salehour', 
+    y='sum(sales)', 
+    color = 'campaignname:N'
+    ).properties(
+    width=1200,
+    height=500)
+    st.altair_chart(e)
