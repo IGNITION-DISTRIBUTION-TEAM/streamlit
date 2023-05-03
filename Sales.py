@@ -43,8 +43,8 @@ with st.sidebar:
     df_filtered = df_filtered.loc[mask]  
     
     current_date_mask_filtered = current_date_mask[current_date_mask['campaignname'].isin(option1) & (current_date_mask['providername'] == option2) & (current_date_mask['providertype'] == option3)]
-    mask2 = (current_date_mask_filtered['saledate'] >= start_date) & (current_date_mask_filtered['saledate'] <= end_date)
-    current_date_mask_filtered = df_filtered.loc[mask2]  
+#     mask2 = (current_date_mask_filtered['saledate'] >= start_date) & (current_date_mask_filtered['saledate'] <= end_date)
+#     current_date_mask_filtered = df_filtered.loc[mask2]  
     
 
 metric = df_filtered['sales'].sum()
