@@ -79,7 +79,7 @@ with col3:
     st.altair_chart(d)
 
 df_average = DATAUPDATE[DATAUPDATE['campaignname'].isin(option1) & (DATAUPDATE['providername'] == option2) & (DATAUPDATE['providertype'] == option3)]
-df_average = df_average.groupby(['campaignname','salehour'])sum(['sales']).mean().reset_index()
+df_average = df_average.groupby(['campaignname','salehour'])['sales'].mean().reset_index()
 
 with col4:
     e = alt.Chart(df_average).mark_line().encode(
