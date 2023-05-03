@@ -72,8 +72,10 @@ df_average = snowflakedata[snowflakedata['campaignname'].isin(option1) & (snowfl
 df_average = df_average.groupby(['campaignname','salehour','saledate'])['sales'].sum().reset_index()
 df_average = df_average.groupby(['campaignname','salehour',])['sales'].mean().reset_index()
 
+
+df_average['Val_1_minus_10'] = current_date_mask['sales'] - df_average['sales']
 st.dataframe(df_average)
-# df_average['Val_1_minus_10'] = current_date_mask['Val1'] - df_average['Val10']
+
 
 col3,col4 = st.columns(2)
 
