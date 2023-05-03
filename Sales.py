@@ -39,7 +39,7 @@ with st.sidebar:
     end_date = st.date_input("End Date", value=pd.to_datetime("today", format="%Y-%m-%d"))
     
     df_filtered = snowflakedata[snowflakedata['campaignname'].isin(option1) & (snowflakedata['providername'] == option2) & (snowflakedata['providertype'] == option3)]
-    mask = (df_filtered['saledate'] >= start_date) & (df_filtered['saledate'] <= end_date)
+    mask = (df_filtered['saledate'] >= start_date+' 00:00:00') & (df_filtered['saledate'] <= end_date+' 59:00:00')
     df_filtered = df_filtered.loc[mask]  
     
 current_date_mask = df_filtered.loc[(df_filtered['saledate'] == pd.Timestamp(datetime.now()))]    
