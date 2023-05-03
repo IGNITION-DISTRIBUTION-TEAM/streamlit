@@ -68,22 +68,21 @@ with col2:
     height=500)
     st.altair_chart(c)
     
-col3,col4 = st.columns(2)
-
-with col3:
-    d = alt.Chart(df_filtered).mark_bar().encode(
-    x='campaignname:O', 
-    y='sum(sales)', 
-    color = 'campaignname:N',
-    column='saledate:N',
-    ).properties(
-    width=100,
-    height=300)
-    st.altair_chart(d)
-
 df_average = snowflakedata[snowflakedata['campaignname'].isin(option1) & (snowflakedata['providername'] == option2) & (snowflakedata['providertype'] == option3)]
 df_average = df_average.groupby(['campaignname','salehour','saledate'])['sales'].sum().reset_index()
 df_average = df_average.groupby(['campaignname','salehour',])['sales'].mean().reset_index()
+
+col3,col4 = st.columns(2)
+
+with col3:
+    c = alt.Chart(df_average).mark_line().encode(
+    x='salehour', 
+    y='sum(sales)', 
+    color = 'campaignname:N'
+    ).properties(
+    width=1200,
+    height=500)
+    st.altair_chart(c)
 
 with col4:
     e = alt.Chart(df_average).mark_line().encode(
@@ -94,3 +93,17 @@ with col4:
     width=1200,
     height=500)
     st.altair_chart(e)
+    
+col5 = st.columns(1)    
+    
+    
+with col5:
+    d = alt.Chart(df_filtered).mark_bar().encode(
+    x='campaignname:O', 
+    y='sum(sales)', 
+    color = 'campaignname:N',
+    column='saledate:N',
+    ).properties(
+    width=100,
+    height=300)
+    st.altair_chart(d)    
