@@ -7,10 +7,7 @@ from sqlalchemy import create_engine
 from datetime import datetime
 import altair as alt
 
-
 current_date = datetime.today().strftime('%Y-%m-%d')
-
-st.write(current_date)
 
 url = URL(**st.secrets["snowflake"])
 
@@ -28,7 +25,11 @@ def load_data(url):
 snowflakedata = load_data(url)
 
 current_date_mask = (snowflakedata['saledate'] == current_date)
-df_singleday = snowflakedata.loc[current_date_mask]  
+df_singleday = snowflakedata.loc[current_date_mask]
+
+
+st.write(current_date)
+
 
 st.dataframe(df_singleday)
 
