@@ -30,7 +30,7 @@ snowflakedata = load_data(url)
 
 current_date_mask = snowflakedata.loc[snowflakedata['saledate'] == pd.Timestamp(datetime.now()), 'saledate'].to_frame()
 
-st.write(current_date)
+st.write(pd.Timestamp(datetime.now())])
 st.dataframe(current_date_mask)
 st.dataframe(snowflakedata)
 
