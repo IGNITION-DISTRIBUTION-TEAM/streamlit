@@ -25,13 +25,13 @@ def load_data(url):
 snowflakedata = load_data(url)
 
 current_date_mask = snowflakedata[snowflakedata['saledate'].datetime.strftime('%Y-%m-%d') == current_date]
-df_singleday = snowflakedata.loc[current_date_mask]
+# df_singleday = snowflakedata.loc[current_date_mask]
 
 
 st.write(current_date)
 
 
-st.dataframe(snowflakedata['saledate'])
+st.dataframe(current_date_mask)
 
 with st.sidebar:
     snowflakedata = snowflakedata.sort_values(by=['campaignname'])
