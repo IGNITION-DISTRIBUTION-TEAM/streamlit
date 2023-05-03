@@ -78,7 +78,7 @@ st.altair_chart(d)
 
 df_average = df_filtered.groupby(['campaignname','salehour'])['sales'].mean()
 
-st.datfarame(df_average)
+st.dataframe(df_average)
 
 e = alt.Chart(df_average).mark_line().encode(
     x='salehour', 
