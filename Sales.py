@@ -31,19 +31,19 @@ df_singleday = snowflakedata.loc[current_date_mask]
 st.dataframe(df_singleday)
 
 with st.sidebar:
-    DATAUPDATE = DATAUPDATE.sort_values(by=['campaignname'])
-    option1 = st.multiselect('Please select a campaign',DATAUPDATE["campaignname"].unique())
+    snowflakedata = snowflakedata.sort_values(by=['campaignname'])
+    option1 = st.multiselect('Please select a campaign',snowflakedata["campaignname"].unique())
     
-    providernames = DATAUPDATE["providername"].loc[DATAUPDATE['campaignname'].isin(option1)]
+    providernames = snowflakedata["providername"].loc[snowflakedata['campaignname'].isin(option1)]
     option2 = st.selectbox('Please select a providername',providernames.unique())
 
-    providertypes = DATAUPDATE["providertype"].loc[DATAUPDATE['campaignname'].isin(option1) & DATAUPDATE['providername'].isin(providernames)]
+    providertypes = snowflakedata["providertype"].loc[snowflakedata['campaignname'].isin(option1) & snowflakedata['providername'].isin(providernames)]
     option3 = st.selectbox('Please select a providertype',providertypes.unique())
     
     start_date = st.date_input("Start Date", value=pd.to_datetime("2021-01-31", format="%Y-%m-%d"))
     end_date = st.date_input("End Date", value=pd.to_datetime("today", format="%Y-%m-%d"))
     
-    df_filtered = DATAUPDATE[DATAUPDATE['campaignname'].isin(option1) & (DATAUPDATE['providername'] == option2) & (DATAUPDATE['providertype'] == option3)]
+    df_filtered = snowflakedata[snowflakedata['campaignname'].isin(option1) & (snowflakedata['providername'] == option2) & (snowflakedata['providertype'] == option3)]
     mask = (df_filtered['saledate'] >= start_date) & (df_filtered['saledate'] <= end_date)
     df_filtered = df_filtered.loc[mask]  
 
@@ -84,7 +84,7 @@ with col3:
     height=300)
     st.altair_chart(d)
 
-df_average = DATAUPDATE[DATAUPDATE['campaignname'].isin(option1) & (DATAUPDATE['providername'] == option2) & (DATAUPDATE['providertype'] == option3)]
+df_average = snowflakedata[snowflakedata['campaignname'].isin(option1) & (snowflakedata['providername'] == option2) & (snowflakedata['providertype'] == option3)]
 df_average = df_average.groupby(['campaignname','salehour','saledate'])['sales'].sum().reset_index()
 df_average = df_average.groupby(['campaignname','salehour',])['sales'].mean().reset_index()
 
