@@ -74,7 +74,7 @@ df_average = df_average.groupby(['campaignname','salehour',])['sales'].mean().re
 
 
 # df_average['Val_1_minus_10'] = current_date_mask['sales'] - df_average['sales']
-df_average.set_index('sales').subtract(current_date_mask.set_index('sales'))
+df_average.set_index(int('sales')).subtract(current_date_mask.set_index(int('sales')))
 st.dataframe(df_average)
 
 
