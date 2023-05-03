@@ -24,7 +24,7 @@ def load_data(url):
 
 snowflakedata = load_data(url)
 
-current_date_mask = (snowflakedata['saledate'].today().strftime('%Y-%m-%d') == current_date)
+current_date_mask = (snowflakedata['saledate'] == current_date)
 df_singleday = snowflakedata.loc[current_date_mask]
 
 
