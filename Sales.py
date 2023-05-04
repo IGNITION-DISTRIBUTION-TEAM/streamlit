@@ -77,6 +77,9 @@ df_average = df_average.groupby(['campaignname','salehour',])['sales'].mean().re
 # df_average.set_index(int('sales')).subtract(current_date_mask.set_index(int('sales')))
 # st.dataframe(df_average)
 
+metric2 = df_average['sales'].sum()
+st.metric('Sales',metric2)
+
 
 col3,col4 = st.columns(2)
 
