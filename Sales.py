@@ -63,7 +63,7 @@ st.metric('Day Sales',metric2)
 metric3 = sum(x for x in df_average["sales"] if x <= maxtime)
 st.metric('Current Predicted Sales',metric3)
 
-metric4 = metric2-metric3
+metric4 = metric-metric3
 st.metric('Current Sales target',metric4)
 
 col1,col2 = st.columns(2)
