@@ -66,9 +66,6 @@ st.metric('Current Predicted Sales',metric3)
 metric4 = metric3-metric
 st.metric('Current Sales target',metric4)
 
-metric5 = metric4-metric3
-st.metric('Predicted Sales Outcome',metric5)
-
 col1,col2 = st.columns(2)
 with col1:
     c = alt.Chart(df_filtered).mark_line().encode(
