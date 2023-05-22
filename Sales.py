@@ -42,10 +42,14 @@ with st.sidebar:
     mask = (df_filtered['saledate'] >= start_date) & (df_filtered['saledate'] <= end_date)
     df_filtered = df_filtered.loc[mask]  
     
-current_date_mask = df_filtered.loc[(df_filtered['saledate'] == pd.Timestamp(datetime.now()))]    
+current_date_mask = df_filtered.loc[(df_filtered['saledate'] == pd.Timestamp(datetime.now()))]   
 
-metric = df_filtered['sales'].sum()
-st.metric('Current Sales',metric)
+
+col1,col2,col3,col4 = st.columns(2)
+
+with col1:
+    metric = df_filtered['sales'].sum()
+    st.metric('Current Sales',metric)
 
 maxtime = df_filtered['salehour'].max()
 
@@ -57,17 +61,20 @@ df_average = df_average.groupby(['campaignname','salehour',])['sales'].mean().re
 # df_average.set_index(int('sales')).subtract(current_date_mask.set_index(int('sales')))
 # st.dataframe(df_average)
 
-metric2 = df_average['sales'].sum()
-st.metric('Day Sales',metric2)
+with col2:
+    metric2 = df_average['sales'].sum()
+    st.metric('Day Sales',metric2)
 
-metric3 = sum(x for x in df_average["sales"] if x < maxtime)
-st.metric('Current Predicted Sales',metric3)
+with col3:
+    metric3 = sum(x for x in df_average["sales"] if x < maxtime)
+    st.metric('Current Predicted Sales',metric3)
 
-metric4 = metric3-metric
-st.metric('Current Sales target',metric4)
+with col4:
+    metric4 = metric3-metric
+    st.metric('Current Sales target',metric4)
 
-col1,col2 = st.columns(2)
-with col1:
+col5,col6 = st.columns(2)
+with col5:
     c = alt.Chart(df_filtered).mark_line().encode(
     x='salehour', 
     y='sum(sales)',
@@ -77,7 +84,7 @@ with col1:
     height=500)
     st.altair_chart(c)
 
-with col2:
+with col6:
     c = alt.Chart(df_filtered).mark_line().encode(
     x='salehour', 
     y='sum(sales)', 
@@ -87,9 +94,9 @@ with col2:
     height=500)
     st.altair_chart(c)
 
-col3,col4 = st.columns(2)
+col7,col8 = st.columns(2)
 
-with col3:
+with col7:
     e = alt.Chart(df_average).mark_line().encode(
     x='salehour', 
     y='sum(sales)'
@@ -98,7 +105,7 @@ with col3:
     height=500)
     st.altair_chart(e)
 
-with col4:
+with col8:
     c = alt.Chart(df_average).mark_line().encode(
     x='salehour', 
     y='sum(sales)', 
