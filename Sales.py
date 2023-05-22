@@ -81,7 +81,7 @@ with col5:
     color=alt.Color('saledate', legend=None)
     ).properties(
     width=800,
-    height=500)
+    height=400)
     st.altair_chart(c)
 
 with col6:
@@ -91,7 +91,7 @@ with col6:
     color=alt.Color('campaignname', legend=None)
     ).properties(
     width=850,
-    height=500)
+    height=400)
     st.altair_chart(c)
 
 col7,col8 = st.columns(2)
@@ -102,7 +102,7 @@ with col7:
     y='sum(sales)'
     ).properties(
     width=800,
-    height=500)
+    height=400)
     st.altair_chart(e)
 
 with col8:
@@ -112,7 +112,7 @@ with col8:
     color=alt.Color('campaignname', legend=None)
     ).properties(
     width=850,
-    height=500)
+    height=400)
     st.altair_chart(c)
     
 # col5 = st.columns(1)    
