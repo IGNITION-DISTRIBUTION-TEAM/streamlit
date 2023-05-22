@@ -16,7 +16,7 @@ st.title('Ignition Sales')
 def load_data(url):
     engine = create_engine(url)
     connection = engine.connect()    
-    query = "select * from DATAWAREHOUSE.DISTRIBUTION_DATA_APPLICATION.VW_AD_SALES_UPDATED"    
+    query = "select * from DATAWAREHOUSE.DISTRIBUTION_DATA_APPLICATION.TM_STREAMLIT_ADDRESSES_TEST"    
     DATAUPDATE = pd.read_sql(query, connection)
     return DATAUPDATE
 
