@@ -93,7 +93,7 @@ with col3:
     e = alt.Chart(df_average).mark_line().encode(
     x='salehour', 
     y='sum(sales)', 
-    color=alt.Color('salehour', legend=None)
+    color=alt.Color('sales', legend=None)
     ).properties(
     width=900,
     height=500)
