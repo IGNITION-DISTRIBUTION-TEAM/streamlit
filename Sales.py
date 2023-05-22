@@ -71,7 +71,7 @@ with col1:
     c = alt.Chart(df_filtered).mark_line().encode(
     x='salehour', 
     y='sum(sales)', 
-    color = 'saledate:N'
+    color = 'saledate:N',
     color=alt.Color('species', legend=None)
     ).properties(
     width=800,
