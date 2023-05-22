@@ -46,16 +46,12 @@ current_date_mask = df_filtered.loc[(df_filtered['saledate'] == pd.Timestamp(dat
 
 metric = df_filtered['sales'].sum()
 st.metric('Current Sales',metric)
-col1,col2 = st.columns(2)
 
 maxtime = df_filtered['salehour'].max()
 
-
-    
 df_average = snowflakedata[snowflakedata['campaignname'].isin(option1) & (snowflakedata['providername'] == option2) & (snowflakedata['providertype'] == option3)]
 df_average = df_average.groupby(['campaignname','salehour','saledate'])['sales'].sum().reset_index()
 df_average = df_average.groupby(['campaignname','salehour',])['sales'].mean().reset_index()
-
 
 # df_average['Val_1_minus_10'] = current_date_mask['sales'] - df_average['sales']
 # df_average.set_index(int('sales')).subtract(current_date_mask.set_index(int('sales')))
@@ -67,11 +63,10 @@ st.metric('Day Sales',metric2)
 metric3 = sum(x for x in df_average["sales"] if x <= maxtime)
 st.metric('Current Predicted Sales',metric3)
 
-
 metric4 = metric-metric3
 st.metric('Current Sales target',metric4)
 
-
+col1,col2 = st.columns(2)
 with col1:
     c = alt.Chart(df_filtered).mark_line().encode(
     x='salehour', 
