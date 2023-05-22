@@ -70,8 +70,7 @@ col1,col2 = st.columns(2)
 with col1:
     c = alt.Chart(df_filtered).mark_line().encode(
     x='salehour', 
-    y='sum(sales)', 
-    color=alt.Color('species', legend=alt.Legend(title=None, orient="top"))
+    y='sum(sales)'
     ).properties(
     width=800,
     height=500)
