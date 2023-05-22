@@ -101,7 +101,7 @@ with col7:
     x='salehour', 
     y='sum(sales)'
     ).properties(
-    width=900,
+    width=800,
     height=500)
     st.altair_chart(e)
 
@@ -111,7 +111,7 @@ with col8:
     y='sum(sales)', 
     color=alt.Color('campaignname', legend=None)
     ).properties(
-    width=900,
+    width=850,
     height=500)
     st.altair_chart(c)
     
