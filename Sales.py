@@ -76,7 +76,8 @@ with col4:
 col5,col6 = st.columns(2)
 with col5:
     c = alt.Chart(df_filtered).mark_line().encode(
-    x='salehour', 
+#     x='salehour', 
+    alt.X('salehour', axis=alt.Axis(tickMinStep=1)),
     y='sum(sales)',
     color=alt.Color('saledate', legend=None)
     ).properties(
