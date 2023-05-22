@@ -72,6 +72,7 @@ with col1:
     x='salehour', 
     y='sum(sales)', 
     color = 'saledate:N'
+    color=alt.Color('species', legend=None)
     ).properties(
     width=800,
     height=500)
