@@ -87,14 +87,13 @@ with col2:
     height=500)
     st.altair_chart(c)
 
-
 col3,col4 = st.columns(2)
 
 with col3:
     e = alt.Chart(df_average).mark_line().encode(
     x='salehour', 
     y='sum(sales)', 
-    color=alt.Color('saledate', legend=None)
+    color=alt.Color('salehour', legend=None)
     ).properties(
     width=900,
     height=500)
