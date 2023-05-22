@@ -21,3 +21,6 @@ def load_data(url):
     return DATAUPDATE
 
 snowflakedata = load_data(url)
+
+
+st.map(snowflakedata)
