@@ -110,15 +110,15 @@ with col4:
     height=500)
     st.altair_chart(c)
     
-col5 = st.columns(1)    
+# col5 = st.columns(1)    
     
-with col5:
-    d = alt.Chart(df_filtered).mark_bar().encode(
-    x='campaignname:O', 
-    y='sum(sales)', 
-    color = 'campaignname:N',
-    column='saledate:N',
-    ).properties(
-    width=100,
-    height=300)
-    st.altair_chart(d)    
+# with col5:
+#     d = alt.Chart(df_filtered).mark_bar().encode(
+#     x='campaignname:O', 
+#     y='sum(sales)', 
+#     color = 'campaignname:N',
+#     column='saledate:N',
+#     ).properties(
+#     width=100,
+#     height=300)
+#     st.altair_chart(d)    
