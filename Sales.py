@@ -50,25 +50,7 @@ col1,col2 = st.columns(2)
 
 maxtime = df_filtered['salehour'].max()
 
-with col1:
-    c = alt.Chart(df_filtered).mark_line().encode(
-    x='salehour', 
-    y='sum(sales)', 
-    color = 'saledate:N'
-    ).properties(
-    width=1200,
-    height=500)
-    st.altair_chart(c)
 
-with col2:
-    c = alt.Chart(df_filtered).mark_line().encode(
-    x='salehour', 
-    y='sum(sales)', 
-    color = 'campaignname:N'
-    ).properties(
-    width=1200,
-    height=500)
-    st.altair_chart(c)
     
 df_average = snowflakedata[snowflakedata['campaignname'].isin(option1) & (snowflakedata['providername'] == option2) & (snowflakedata['providertype'] == option3)]
 df_average = df_average.groupby(['campaignname','salehour','saledate'])['sales'].sum().reset_index()
@@ -88,6 +70,28 @@ st.metric('Current Predicted Sales',metric3)
 
 metric4 = metric-metric3
 st.metric('Current Sales target',metric4)
+
+
+with col1:
+    c = alt.Chart(df_filtered).mark_line().encode(
+    x='salehour', 
+    y='sum(sales)', 
+    color = 'saledate:N'
+    ).properties(
+    width=1200,
+    height=500)
+    st.altair_chart(c)
+
+with col2:
+    c = alt.Chart(df_filtered).mark_line().encode(
+    x='salehour', 
+    y='sum(sales)', 
+    color = 'campaignname:N'
+    ).properties(
+    width=1200,
+    height=500)
+    st.altair_chart(c)
+
 
 col3,col4 = st.columns(2)
 
