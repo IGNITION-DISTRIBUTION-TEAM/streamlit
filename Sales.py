@@ -45,7 +45,7 @@ with st.sidebar:
 current_date_mask = df_filtered.loc[(df_filtered['saledate'] == pd.Timestamp(datetime.now()))]    
 
 metric = df_filtered['sales'].sum()
-st.metric('Sales',metric)
+st.metric('Current Sales',metric)
 col1,col2 = st.columns(2)
 
 maxtime = df_filtered['salehour'].max()
@@ -80,11 +80,14 @@ df_average = df_average.groupby(['campaignname','salehour',])['sales'].mean().re
 # st.dataframe(df_average)
 
 metric2 = df_average['sales'].sum()
-st.metric('Sales',metric2)
-
+st.metric('Day Sales',metric2)
 
 metric3 = sum(x for x in df_average["sales"] if x <= maxtime)
-st.metric('Predicted Sales',metric3)
+st.metric('Current Predicted Sales',metric3)
+
+
+metric4 = metric-metric3
+st.metric('Current Sales target',metric4)
 
 col3,col4 = st.columns(2)
 
