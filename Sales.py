@@ -67,7 +67,7 @@ with col2:
 
 with col3:
     metric3 = sum(x for x in df_average["sales"] if x < maxtime)
-    st.metric('Current Predicted Sales',round(metric3))
+    st.metric('Current Predicted Sales',round(metric3),metric)
 
 with col4:
     metric4 = metric3-metric
