@@ -84,7 +84,7 @@ st.metric('Sales',metric2)
 
 
 metric3 = sum(x for x in df_average["sales"] if x <= maxtime)
-st.metric('Sales',metric3)
+st.metric('Predicted Sales',metric3)
 
 col3,col4 = st.columns(2)
 
