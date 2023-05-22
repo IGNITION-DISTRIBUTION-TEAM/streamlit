@@ -73,7 +73,7 @@ with col1:
     y='sum(sales)', 
     color = 'saledate:N'
     ).properties(
-    width=900,
+    width=800,
     height=500)
     st.altair_chart(c)
 
