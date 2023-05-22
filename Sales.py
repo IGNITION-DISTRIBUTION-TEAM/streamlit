@@ -83,7 +83,7 @@ with col2:
     y='sum(sales)', 
     color = 'campaignname:N'
     ).properties(
-    width=800,
+    width=850,
     height=500)
     st.altair_chart(c)
 
