@@ -48,6 +48,8 @@ metric = df_filtered['sales'].sum()
 st.metric('Sales',metric)
 col1,col2 = st.columns(2)
 
+maxtime = df_filtered['salehour'].max()
+
 with col1:
     c = alt.Chart(df_filtered).mark_line().encode(
     x='salehour', 
