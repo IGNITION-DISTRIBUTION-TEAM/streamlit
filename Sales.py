@@ -76,7 +76,6 @@ with col4:
 col5,col6 = st.columns(2)
 with col5:
     c = alt.Chart(df_filtered).mark_line().encode(
-#     x='salehour', 
     alt.X('salehour', axis=alt.Axis(tickMinStep=1)),
     y='sum(sales)',
     color=alt.Color('saledate', legend=None)
@@ -87,7 +86,7 @@ with col5:
 
 with col6:
     c = alt.Chart(df_filtered).mark_line().encode(
-    x='salehour', 
+    alt.X('salehour', axis=alt.Axis(tickMinStep=1)),        
     y='sum(sales)', 
     color=alt.Color('campaignname', legend=None)
     ).properties(
@@ -99,7 +98,7 @@ col7,col8 = st.columns(2)
 
 with col7:
     e = alt.Chart(df_average).mark_line().encode(
-    x='salehour', 
+    alt.X('salehour', axis=alt.Axis(tickMinStep=1)), 
     y='sum(sales)'
     ).properties(
     width=800,
@@ -108,7 +107,7 @@ with col7:
 
 with col8:
     c = alt.Chart(df_average).mark_line().encode(
-    x='salehour', 
+    alt.X('salehour', axis=alt.Axis(tickMinStep=1)),
     y='sum(sales)', 
     color=alt.Color('campaignname', legend=None)
     ).properties(
