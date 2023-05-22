@@ -60,7 +60,7 @@ df_average = df_average.groupby(['campaignname','salehour',])['sales'].mean().re
 metric2 = df_average['sales'].sum()
 st.metric('Day Sales',metric2)
 
-metric3 = sum(x for x in df_average["sales"] if x <= maxtime)
+metric3 = sum(x for x in df_average["sales"] if x < maxtime)
 st.metric('Current Predicted Sales',metric3)
 
 metric4 = metric-metric3
