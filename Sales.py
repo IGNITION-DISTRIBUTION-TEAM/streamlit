@@ -72,9 +72,9 @@ with col4:
     
     
 if metric4 < 0:
-    symbol = 'Under Predicted Target :sparkles:'
+    symbol = 'Under Predicted Target :face_with_spiral_eyes:'
 else:
-    symbol = 'Over Predicted Target :sparkles:'
+    symbol = 'Over Predicted Target :laughing:'
     
 
 with col10:
