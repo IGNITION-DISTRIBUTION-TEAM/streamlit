@@ -12,7 +12,6 @@ current_date = datetime.today().strftime('%Y-%m-%d')+' 00:00:00'
 url = URL(**st.secrets["snowflake"])
 
 st.set_page_config(layout="wide")
-st.title('Ignition Sales')
 
 @st.cache_data(ttl=1500)
 def load_data(url):
@@ -26,6 +25,7 @@ snowflakedata = load_data(url)
 
 
 with st.sidebar:
+    st.title('Ignition Sales')
     snowflakedata = snowflakedata.sort_values(by=['campaignname'])
     option1 = st.multiselect('Please select a campaign',snowflakedata["campaignname"].unique())
     
