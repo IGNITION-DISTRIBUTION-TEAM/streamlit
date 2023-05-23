@@ -1,4 +1,5 @@
 import streamlit as st
+from streamlit_extras.metric_cards import style_metric_cards
 import pandas as pd
 import numpy as np
 import snowflake.connector
@@ -77,9 +78,8 @@ else:
     symbol = 'Over Predicted Target :laughing:'
     
 
-with col10:
-    st.write(symbol)
-    
+col10.st.write(symbol)
+style_metric_cards()    
 
 col5,col6 = st.columns(2)
 with col5:
