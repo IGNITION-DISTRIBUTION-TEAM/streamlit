@@ -65,7 +65,7 @@ with col2:
     metric2 = df_average['sales'].sum()
     st.metric('Day Sales',round(metric2))
     
-df_filtererhour =  df_filtered[(df_filtered['sales'] < maxtime)]
+df_filtererhour =  df_average[(df_average['sales'] < maxtime)]
 
 with col3:
     metric3 = sum(df_filtererhour['sales'])
