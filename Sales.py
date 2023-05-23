@@ -1,5 +1,4 @@
 import streamlit as st
-from streamlit_extras.metric_cards import style_metric_cards
 import pandas as pd
 import numpy as np
 import snowflake.connector
@@ -65,7 +64,7 @@ df_filtererhour =  df_average[(df_average['salehour'] <= maxtime)]
 
 with col3:
     metric3 = sum(df_filtererhour['sales'])
-    st.metric('Current Hour Predicted Sales',round(metric3),delta=metric)
+    st.metric('Current Hour Predicted Sales',round(metric3))
 
 with col4:
     metric4 = metric-metric3
@@ -78,8 +77,9 @@ else:
     symbol = 'Over Predicted Target :laughing:'
     
 
-col10.st.write(symbol)
-style_metric_cards()    
+with col10:
+    st.write(symbol)
+   
 
 col5,col6 = st.columns(2)
 with col5:
