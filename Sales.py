@@ -44,7 +44,6 @@ with st.sidebar:
     
 current_date_mask = df_filtered.loc[(df_filtered['saledate'] == pd.Timestamp(datetime.now()))]   
 
-
 col1,col2,col3,col4 = st.columns(4)
 
 with col1:
@@ -57,23 +56,19 @@ df_average = snowflakedata[snowflakedata['campaignname'].isin(option1) & (snowfl
 df_average = df_average.groupby(['campaignname','salehour','saledate'])['sales'].sum().reset_index()
 df_average = df_average.groupby(['campaignname','salehour',])['sales'].mean().reset_index()
 
-# df_average['Val_1_minus_10'] = current_date_mask['sales'] - df_average['sales']
-# df_average.set_index(int('sales')).subtract(current_date_mask.set_index(int('sales')))
-# st.dataframe(df_average)
-
 with col2:
     metric2 = df_average['sales'].sum()
-    st.metric('Day Sales',round(metric2))
+    st.metric('Full Day Predicted Sales',round(metric2))
     
 df_filtererhour =  df_average[(df_average['salehour'] <= maxtime)]
 
 with col3:
     metric3 = sum(df_filtererhour['sales'])
-    st.metric('Current Predicted Sales',round(metric3))
+    st.metric('Current Hour Predicted Sales',round(metric3))
 
 with col4:
     metric4 = metric-metric3
-    st.metric('Current Sales target',round(metric4))
+    st.metric('Sales Difference',round(metric4))
 
 col5,col6 = st.columns(2)
 with col5:
