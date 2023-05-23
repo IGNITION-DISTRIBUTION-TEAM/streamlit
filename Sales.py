@@ -64,7 +64,7 @@ df_filtererhour =  df_average[(df_average['salehour'] <= maxtime)]
 
 with col3:
     metric3 = sum(df_filtererhour['sales'])
-    st.metric('Current Hour Predicted Sales',round(metric3))
+    st.metric('Current Hour Predicted Sales',round(metric3),delta=metric)
 
 with col4:
     metric4 = metric-metric3
