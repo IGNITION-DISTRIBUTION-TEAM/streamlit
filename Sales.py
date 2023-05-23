@@ -66,7 +66,7 @@ with col2:
     st.metric('Day Sales',round(metric2))
 
 with col3:
-    metric3 = sum(x for x in df_average["sales"] if x <= maxtime)
+    metric3 = sum(x for x in df_average["sales"] if df_average["salehour"]  <= maxtime)
     st.metric('Current Predicted Sales',round(metric3))
 
 with col4:
