@@ -44,7 +44,7 @@ with st.sidebar:
     
 current_date_mask = df_filtered.loc[(df_filtered['saledate'] == pd.Timestamp(datetime.now()))]   
 
-col1,col2,col3,col4 = st.columns(4)
+col1,col2,col3,col4,col10 = st.columns(5)
 
 with col1:
     metric = df_filtered['sales'].sum()
@@ -69,6 +69,17 @@ with col3:
 with col4:
     metric4 = metric-metric3
     st.metric('Sales Difference',round(metric4))
+    
+    
+if metric4 < 0:
+    symbol = ':sparkles:'
+else:
+    symbol = ':sparkles:'
+    
+
+with col10:
+    st.write(symbol)
+    
 
 col5,col6 = st.columns(2)
 with col5:
