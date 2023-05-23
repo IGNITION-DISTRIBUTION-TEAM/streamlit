@@ -72,7 +72,7 @@ with col3:
     st.metric('Current Predicted Sales',round(metric3))
 
 with col4:
-    metric4 = metric3-metric
+    metric4 = metric-metric3
     st.metric('Current Sales target',round(metric4))
 
 col5,col6 = st.columns(2)
