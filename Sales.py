@@ -1,4 +1,5 @@
 import streamlit as st
+from streamlit_extras.let_it_rain import rain
 import pandas as pd
 import numpy as np
 import snowflake.connector
@@ -75,6 +76,13 @@ if metric4 < 0:
     symbol = 'Under Predicted Target :face_with_spiral_eyes:'
 else:
     symbol = 'Over Predicted Target :laughing:'
+    
+    rain(
+    emoji="🎈",
+    font_size=54,
+    falling_speed=5,
+    animation_length="infinite",
+    )
     
 
 with col10:
