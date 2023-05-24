@@ -1,3 +1,4 @@
 snowflake-connector-python
 snowflake.sqlalchemy
 sqlalchemy
+python-dateutil==1.4
