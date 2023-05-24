@@ -8,6 +8,7 @@ from datetime import datetime
 import altair as alt
 
 current_date = datetime.today().strftime('%Y-%m-%d')+' 00:00:00'
+sixmonthsago = datetime.datetime.now() - datetime.timedelta(180)
 
 url = URL(**st.secrets["snowflake"])
 
@@ -52,7 +53,7 @@ with col1:
 
 maxtime = df_filtered['salehour'].max()
 
-df_average = snowflakedata[snowflakedata['campaignname'].isin(option1) & (snowflakedata['providername'] == option2) & (snowflakedata['providertype'] == option3)]
+df_average = snowflakedata[snowflakedata['campaignname'].isin(option1) & (snowflakedata['providername'] == option2) & (snowflakedata['providertype'] == option3) & (snowflakedata['saledate'] > sixmonthsago) ]
 df_average = df_average.groupby(['campaignname','salehour','saledate'])['sales'].sum().reset_index()
 df_average = df_average.groupby(['campaignname','salehour',])['sales'].mean().reset_index()
 
