@@ -8,7 +8,7 @@ from datetime import datetime,timedelta
 import altair as alt
 
 current_date = datetime.today().strftime('%Y-%m-%d')+' 00:00:00'
-sixmonthsago = datetime.datetime.now() - datetime.timedelta(180)
+sixmonthsago = datetime.now() - datetime.timedelta(180)
 
 url = URL(**st.secrets["snowflake"])
 
