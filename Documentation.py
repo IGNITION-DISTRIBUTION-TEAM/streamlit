@@ -48,4 +48,9 @@ with st.expander("File Formats"):
 st.write('Allows Ignition to store and create custom data layouts that match our systems')
 
 with st.expander("Snowflake views and tables"):
-        st.write(df_filtered[['staging_table','dialler_view','silversurfer_view']])        
+        st.write(df_filtered[['staging_table','dialler_view','silversurfer_view']]) 
+        
+st.write('Create process and flows alloing for transformation of data')
+
+with st.expander("Stored Procedures"):
+        st.write(df_filtered[['campaign_specific_procs','campaign_specific_business_rule_procs','business_rule_proc']])           
