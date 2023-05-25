@@ -44,3 +44,8 @@ st.write('Client send Ignition file in different formats')
 
 with st.expander("File Formats"):
         st.write(df_filtered[['filename','file_type']])
+        
+st.write('Allows Ignition to store and create custom data layouts that match our systems')
+
+with st.expander("Snowflake views and tables"):
+        st.write(df_filtered[['staging_table','dialler_view','silversurfer_view']])        
