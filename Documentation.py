@@ -39,3 +39,8 @@ st.write('Secure File Transfer Protocol (SFTP) is a network protocol for securel
 with st.expander("SFTP Detail"):
         st.write(df_filtered[['sftp_port_number','sftp_host']])
         st.write('Username and Passwords are stored in database')
+        
+st.write('Client send Ignition file in different formats')
+
+with st.expander("File Formats"):
+        st.write(df_filtered[['filename','file_type']])
