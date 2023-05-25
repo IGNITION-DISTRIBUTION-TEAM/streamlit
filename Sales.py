@@ -43,7 +43,9 @@ with st.sidebar:
     mask = (df_filtered['saledate'] >= start_date) & (df_filtered['saledate'] <= end_date)
     df_filtered = df_filtered.loc[mask]  
     
-current_date_mask = df_filtered.loc[(df_filtered['saledate'] == pd.Timestamp(datetime.now()))]   
+current_date_mask = df_filtered.loc[(df_filtered['saledate'] == pd.Timestamp(datetime.now()))]  
+
+st.divider()
 
 col1,col2,col3,col4,col10 = st.columns(5)
 
