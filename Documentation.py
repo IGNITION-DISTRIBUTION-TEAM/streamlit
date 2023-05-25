@@ -24,3 +24,5 @@ def load_data(url):
 
 snowflakedata = load_data(url)
 
+with st.sidebar:
+    
