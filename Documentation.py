@@ -24,10 +24,8 @@ def load_data(url):
 
 snowflakedata = load_data(url)
 
-st.dataframe(snowflakedata, use_container_width=True)
-
 with st.sidebar:
     snowflakedata = snowflakedata.sort_values(by=['campaign_name'])
     option1 = st.selectbox('Please select a campaign',snowflakedata["campaign_name"].unique())
 
-st.title(snowflakedata['campaign_name'])    
+st.title(option1)    
