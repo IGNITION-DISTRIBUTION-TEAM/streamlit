@@ -30,5 +30,8 @@ with st.sidebar:
 
 st.title(option1)    
 
+
+df_filtered = snowflakedata[(snowflakedata['campaign_name'] == option1)]
+
 with st.expander("See explanation"):
-    st.write("The chart above shows some numbers I picked for you. I rolled actual dice for these, so they're *guaranteed* to be random.")
+    st.write(df_filtered['sftp_port_number'])
