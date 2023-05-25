@@ -33,5 +33,5 @@ st.title(option1)
 
 df_filtered = snowflakedata[(snowflakedata['campaign_name'] == option1)]
 
-with st.expander("See explanation"):
+with st.expander("SFTP Detail"):
     st.write(df_filtered['sftp_port_number'])
