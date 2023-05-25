@@ -29,3 +29,6 @@ with st.sidebar:
     option1 = st.selectbox('Please select a campaign',snowflakedata["campaign_name"].unique())
 
 st.title(option1)    
+
+with st.expander("See explanation"):
+    st.write(\"\"\"The chart above shows some numbers I picked for you. I rolled actual dice for these, so they're *guaranteed* to be random.\"\"\")
