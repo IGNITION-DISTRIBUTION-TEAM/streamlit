@@ -35,4 +35,4 @@ df_filtered = snowflakedata[(snowflakedata['campaign_name'] == option1)]
 col1,col2,col3,col4,col = st.columns(5)
 
 with st.expander("SFTP Detail"):
-        st.write(df_filtered['sftp_port_number,sftp_host'])
+        st.write(df_filtered[['sftp_port_number','sftp_host']])
