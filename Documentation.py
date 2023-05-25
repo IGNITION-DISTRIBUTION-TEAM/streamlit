@@ -25,4 +25,4 @@ def load_data(url):
 snowflakedata = load_data(url)
 
 with st.sidebar:
-    
+        snowflakedata = snowflakedata.sort_values(by=['CAMPAIGN_NAME'])
