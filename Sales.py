@@ -45,8 +45,6 @@ with st.sidebar:
     
 current_date_mask = df_filtered.loc[(df_filtered['saledate'] == pd.Timestamp(datetime.now()))]  
 
-st.divider()
-
 col1,col2,col3,col4,col10 = st.columns(5)
 
 with col1:
@@ -89,6 +87,9 @@ else:
 
 with col10:
     st.write(symbol)
+    
+    
+st.divider()    
    
 
 col5,col6 = st.columns(2)
