@@ -26,3 +26,4 @@ snowflakedata = load_data(url)
 
 with st.sidebar:
         snowflakedata = snowflakedata.sort_values(by=['CAMPAIGN_NAME'])
+        option1 = st.selectbox('Please select a Campaign Name',snowflakedata.unique())
