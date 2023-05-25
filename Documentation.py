@@ -34,5 +34,7 @@ df_filtered = snowflakedata[(snowflakedata['campaign_name'] == option1)]
 
 col1,col2,col3,col4,col = st.columns(5)
 
+st.write('Secure File Transfer Protocol (SFTP) is a network protocol for securely accessing, transferring and managing large files and sensitive data.')
+
 with st.expander("SFTP Detail"):
         st.write(df_filtered[['sftp_port_number','sftp_host']])
