@@ -30,9 +30,12 @@ with st.sidebar:
 
 st.title(option1)    
 
-
 df_filtered = snowflakedata[(snowflakedata['campaign_name'] == option1)]
 
+col1,col2,col3,col4,col = st.columns(5)
+
 with st.expander("SFTP Detail"):
-    st.write(df_filtered['sftp_port_number'])
-    st.write(df_filtered['sftp_host'])
+    with col1:
+        st.write(df_filtered['sftp_port_number'])
+    with col2:
+        st.write(df_filtered['sftp_host'])
