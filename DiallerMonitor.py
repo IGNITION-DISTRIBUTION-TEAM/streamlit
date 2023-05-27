@@ -10,7 +10,7 @@ import altair as alt
 
 current_date = datetime.today().strftime('%Y-%m-%d')+' 00:00:00'
 
-url = URL(**st.secrets["snowflake"])
+# url = URL(**st.secrets["snowflake"])
 
 st.set_page_config(layout="wide",page_title="IG Sales", page_icon="🌍")
 
