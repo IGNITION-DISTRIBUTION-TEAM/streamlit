@@ -12,11 +12,17 @@ current_date = datetime.today().strftime('%Y-%m-%d')+' 00:00:00'
 
 # url = URL(**st.secrets["snowflake"])
 
-st.set_page_config(layout="wide",page_title="IG Sales", page_icon="🌍",    initial_sidebar_state="expanded",    menu_items={
+st.set_page_config(
+    page_title="Ex-stream-ly Cool App",
+    page_icon="🧊",
+    layout="wide",
+    initial_sidebar_state="expanded",
+    menu_items={
         'Get Help': 'https://www.extremelycoolapp.com/help',
         'Report a bug': "https://www.extremelycoolapp.com/bug",
         'About': "# This is a header. This is an *extremely* cool app!"
-    })
+    }
+)
 
 # @st.cache_data(ttl=1500)
 # def load_data(url):
