@@ -14,7 +14,7 @@ url = URL(**st.secrets["snowflake"])
 
 st.set_page_config(layout="wide",page_title="IG Sales", page_icon="🌍")
 
-@st.cache_data(ttl=1500)
+@st.cache_data(ttl=900)
 def load_data(url):
     engine = create_engine(url)
     connection = engine.connect()    
