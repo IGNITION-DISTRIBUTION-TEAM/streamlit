@@ -45,7 +45,7 @@ with st.sidebar:
     
 current_date_mask = df_filtered.loc[(df_filtered['saledate'] == pd.Timestamp(datetime.now()))]  
 
-col1,col2,col3,col4,col10,col11 = st.columns(5)
+col1,col2,col3,col4,col10,col11 = st.columns(6)
 
 with col1:
     metric = df_filtered['sales'].sum()
