@@ -45,7 +45,7 @@ with st.sidebar:
     
 current_date_mask = df_filtered.loc[(df_filtered['saledate'] == pd.Timestamp(datetime.now()))]  
 
-col1,col2,col3,col4,col10 = st.columns(5)
+col1,col2,col3,col4,col10,col11 = st.columns(5)
 
 with col1:
     metric = df_filtered['sales'].sum()
@@ -90,11 +90,9 @@ else:
 with col10:
     
     st.metric('Final sales prediction',round(finalperdict))
-    st.write(symbol)
     
-    
-st.divider()    
-   
+with col11: 
+       st.write(symbol)
 
 col5,col6 = st.columns(2)
 with col5:
