@@ -67,7 +67,7 @@ with col2:
     metric3 = sum(df_filtererhour['sales'])
     st.metric('Current Hour Predicted Sales',round(metric3))
 
-with col4:
+with col10:
     metric4 = metric-metric3
     st.metric('Sales Difference',round(metric4))
 
@@ -87,7 +87,7 @@ else:
     # )
     
 
-with col10:
+with col4:
     
     st.metric('Final sales prediction',round(finalperdict))
     
