@@ -79,12 +79,12 @@ if metric4 < 0:
 else:
     symbol = 'Over Predicted Target :laughing:'
     
-    rain(
-    emoji="🎈",
-    font_size=54,
-    falling_speed=5,
-    animation_length="infinite",
-    )
+    # rain(
+    # emoji="🎈",
+    # font_size=54,
+    # falling_speed=5,
+    # animation_length="infinite",
+    # )
     
 
 with col10:
