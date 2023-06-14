@@ -70,6 +70,8 @@ with col3:
 with col4:
     metric4 = metric-metric3
     st.metric('Sales Difference',round(metric4))
+
+finalperdict = metric2+metric4
     
     
 if metric4 < 0:
@@ -87,6 +89,7 @@ else:
 
 with col10:
     st.write(symbol)
+    st.metric('Final sales prediction',round(finalperdict))
     
     
 st.divider()    
