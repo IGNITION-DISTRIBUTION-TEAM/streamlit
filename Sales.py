@@ -57,13 +57,13 @@ df_average = snowflakedata[snowflakedata['campaignname'].isin(option1) & (snowfl
 df_average = df_average.groupby(['campaignname','salehour','saledate'])['sales'].sum().reset_index()
 df_average = df_average.groupby(['campaignname','salehour',])['sales'].mean().reset_index()
 
-with col2:
+with col3:
     metric2 = df_average['sales'].sum()
     st.metric('Full Day Predicted Sales',round(metric2))
     
 df_filtererhour =  df_average[(df_average['salehour'] <= maxtime)]
 
-with col3:
+with col2:
     metric3 = sum(df_filtererhour['sales'])
     st.metric('Current Hour Predicted Sales',round(metric3))
 
