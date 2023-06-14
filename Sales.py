@@ -88,8 +88,9 @@ else:
     
 
 with col10:
-    st.write(symbol)
+    
     st.metric('Final sales prediction',round(finalperdict))
+    st.write(symbol)
     
     
 st.divider()    
