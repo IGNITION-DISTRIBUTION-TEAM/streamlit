@@ -2,3 +2,4 @@ snowflake-connector-python
 snowflake.sqlalchemy
 sqlalchemy
 streamlit-extras
+pyarrow
