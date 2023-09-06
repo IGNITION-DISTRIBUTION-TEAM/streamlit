@@ -21,3 +21,18 @@ def load_data(url):
     return DATAUPDATE
 
 snowflakedata = load_data(url)
+
+with st.sidebar:
+    st.title('Ignition Sales')
+    snowflakedata = snowflakedata.sort_values(by=['campaignname'])
+    option1 = st.multiselect('Please select a campaign',snowflakedata["campaignname"].unique())
+    
+    start_date = st.date_input("Start Date", value=pd.to_datetime("2021-01-31", format="%Y-%m-%d"))
+    end_date = st.date_input("End Date", value=pd.to_datetime("today", format="%Y-%m-%d"))
+    
+    df_filtered = snowflakedata[snowflakedata['campaignname'].isin(option1)]
+    mask = (df_filtered['DATEDIALLED'] >= start_date) & (df_filtered['DATEDIALLED'] <= end_date)
+    df_filtered = df_filtered.loc[mask]  
+
+
+st.dataframe(df_filtered)
