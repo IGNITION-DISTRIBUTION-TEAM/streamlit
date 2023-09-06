@@ -35,6 +35,9 @@ with st.sidebar:
     df_filtered = df_filtered.loc[mask]  
 
 
+metric = df_filtered['leads'].sum()
+st.metric('Total leads dialled',metric)
+
 c = alt.Chart(df_filtered).mark_line().encode(
 alt.X('salehour', axis=alt.Axis(tickMinStep=1)),
 y='sum(leads)'
