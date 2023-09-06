@@ -35,6 +35,14 @@ with st.sidebar:
     df_filtered = df_filtered.loc[mask]  
 
 
+c = alt.Chart(df_filtered).mark_line().encode(
+alt.X('salehour', axis=alt.Axis(tickMinStep=1)),
+y='sum(leads)',
+color=alt.Color('campaign_dialling_method', legend=None)
+).properties(
+width=800,
+height=400)
+st.altair_chart(c)
 
 
 
