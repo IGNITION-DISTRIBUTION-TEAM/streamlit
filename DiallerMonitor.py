@@ -37,8 +37,7 @@ with st.sidebar:
 
 c = alt.Chart(df_filtered).mark_line().encode(
 alt.X('salehour', axis=alt.Axis(tickMinStep=1)),
-y='sum(leads)',
-color=alt.Color('campaign_dialling_method', legend=None)
+y='sum(leads)'
 ).properties(
 width=800,
 height=400)
