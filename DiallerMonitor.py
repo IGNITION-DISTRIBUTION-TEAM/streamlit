@@ -34,5 +34,5 @@ with st.sidebar:
     mask = (df_filtered['datedialled'] >= start_date) & (df_filtered['datedialled'] <= end_date)
     df_filtered = df_filtered.loc[mask]  
 
-st.title(snowflakedata)
+st.title(option1)
 st.dataframe(df_filtered)
