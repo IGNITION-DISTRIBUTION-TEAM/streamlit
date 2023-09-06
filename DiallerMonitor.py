@@ -50,7 +50,7 @@ st.altair_chart(c)
 d = alt.Chart(df_filtered).mark_bar(size=30).encode(
 alt.X('salehour'),
 y='sum(leads)',
-color='answered','dmc'
+color='answered'
 ).properties(
 width=800,
 height=400)
