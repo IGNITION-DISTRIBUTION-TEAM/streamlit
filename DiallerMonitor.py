@@ -38,7 +38,7 @@ with st.sidebar:
 metric = df_filtered['leads'].sum()
 st.metric('Total leads dialled',metric)
 
-c = alt.Chart(df_filtered).mark_bar().encode(
+c = alt.Chart(df_filtered).mark_bar(barSize=20).encode(
 alt.X('salehour'),
 y='sum(leads)',
 color='campaign_dialling_method'
