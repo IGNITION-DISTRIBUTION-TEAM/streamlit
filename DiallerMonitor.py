@@ -16,7 +16,7 @@ st.set_page_config(layout="wide",page_title="IG Sales", page_icon="🌍")
 def load_data(url):
     engine = create_engine(url)
     connection = engine.connect()    
-    query = "select * from DATAWAREHOUSE.DISTRIBUTION_DATA_APPLICATION.TR_DIALLER_LEAD_COUNTS"    
+    query = "select * from DATAWAREHOUSE.DISTRIBUTION_DATA_APPLICATION.TM_CXM_DIALLER_REPORT"    
     DATAUPDATE = pd.read_sql(query, connection)
     return DATAUPDATE
 
