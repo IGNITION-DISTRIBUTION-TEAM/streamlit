@@ -31,7 +31,7 @@ with st.sidebar:
     end_date = st.date_input("End Date", value=pd.to_datetime("today", format="%Y-%m-%d"))
     
     df_filtered = snowflakedata[snowflakedata['campaignname'].isin(option1)]
-    mask = (df_filtered['DATEDIALLED'] >= start_date) & (df_filtered['DATEDIALLED'] <= end_date)
+    mask = (df_filtered['datedialled'] >= start_date) & (df_filtered['datedialled'] <= end_date)
     df_filtered = df_filtered.loc[mask]  
 
 
