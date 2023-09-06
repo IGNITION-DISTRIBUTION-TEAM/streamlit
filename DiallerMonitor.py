@@ -23,7 +23,7 @@ def load_data(url):
 snowflakedata = load_data(url)
 
 with st.sidebar:
-    st.title('Ignition Sales')
+    st.title('Ignition Dialler')
     snowflakedata = snowflakedata.sort_values(by=['campaignname'])
     option1 = st.multiselect('Please select a campaign',snowflakedata["campaignname"].unique())
     
