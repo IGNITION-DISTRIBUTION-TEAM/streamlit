@@ -9,22 +9,15 @@ from datetime import datetime
 import altair as alt
 
 current_date = datetime.today().strftime('%Y-%m-%d')+' 00:00:00'
+url = URL(**st.secrets["snowflake"])
+st.set_page_config(layout="wide",page_title="IG Sales", page_icon="🌍")
 
-# url = URL(**st.secrets["snowflake"])
+@st.cache_data(ttl=3500)
+def load_data(url):
+    engine = create_engine(url)
+    connection = engine.connect()    
+    query = "select * from DATAWAREHOUSE.DISTRIBUTION_DATA_APPLICATION.TR_DIALLER_LEAD_COUNTS"    
+    DATAUPDATE = pd.read_sql(query, connection)
+    return DATAUPDATE
 
-st.set_page_config(
-    page_title="Ex-stream-ly Cool App",
-    page_icon="🧊",
-    layout="wide",
-    initial_sidebar_state="expanded"
-)
-
-# @st.cache_data(ttl=1500)
-# def load_data(url):
-#     engine = create_engine(url)
-#     connection = engine.connect()    
-#     query = "select * from DATAWAREHOUSE.DISTRIBUTION_DATA_APPLICATION.VW_AD_SALES_UPDATED"    
-#     DATAUPDATE = pd.read_sql(query, connection)
-#     return DATAUPDATE
-
-# snowflakedata = load_data(url)
+snowflakedata = load_data(url)
